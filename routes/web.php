@@ -9,6 +9,23 @@ use Illuminate\Support\Facades\Route;
 
 
 
+
+Route::get('/', [BookController::class, 'index'])->name('main');
+
+Route::get('/shop', [BookController::class, 'shop'])->name('shop');
+
+
+// CART
+
+Route::post('/cart', [BookController::class, 'cart']);
+
+
+
+
+Route::get('/myitems', [BookController::class, 'index'])->name('main')->middleware(['auth', 'verified']);
+
+Route::get('/myitems', [OrderBookController::class, 'index'])->name('my_items');
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,15 +37,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test', [GetFreeTimeForOrderMainController::class, 'index']);
-
-Route::get('/', [BookController::class, 'index'])->name('main')->middleware(['auth', 'verified']);
-
-
-// Route::get('/myitems', [BookController::class, 'index'])->name('main')->middleware(['auth', 'verified']);
+// Route::get('/test', [GetFreeTimeForOrderMainController::class, 'index']);
+// ->middleware(['auth', 'verified']);
 
 
-Route::resource('books', OrderBookController::class)->middleware(['auth', 'verified']);
+
+
+
+
+// Route::resource('books', OrderBookController::class)->middleware(['auth', 'verified']);
 
 
 Route::group(['prefix' => 'admin'], function () {
@@ -45,15 +62,14 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 //Мои брони
-Route::get('/myitems', [OrderBookController::class, 'index'])->name('my_items');
 
 
-Route::get('/item_destroy', [OrderBookController::class, 'destroy'])->name('delite');
+
+// Route::get('/item_destroy', [OrderBookController::class, 'destroy'])->name('delite');
 
 
 
 Route::get('/dashboard', function () {
-    // Validate the request...
 
     return redirect('/');
 });
