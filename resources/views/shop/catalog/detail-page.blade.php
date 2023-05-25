@@ -23,7 +23,7 @@
                         <option value='XL'>XL</option>
                     </select>
                     <!-- <input type="number" value="1"> -->
-                    <button class="normal addToCartDetail">Add To Cart</button>
+                    <button class="normal addToCartDetail">Добавить в корзину</button>
 
 
 
@@ -53,8 +53,8 @@
 
 
 
-                    <h4>Product Details</h4>
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque repellendus neque illo fugiat ipsum voluptatem ipsa libero officiis. Quaerat ab libero ut odit corporis laudantium error impedit, illum obcaecati?Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate non nesciunt reprehenderit et architecto iusto quas dolores aspernatur, debitis magnam pariatur saepe ducimus, nihil illum doloribus perspiciatis! Quam, atque asperiores?</span>
+                    <h4>Описание</h4>
+                    <span>{{ $data->text }}</span>
                 </div>
             </section>
             <section class="mg-40 newBg product">

@@ -1,6 +1,25 @@
 $(document).ready(function(){
 
 
+    // mobile
+
+    $(document).on('click', '.mobile', function(e){
+        
+        e.preventDefault();
+
+        $('.menu').toggle();
+
+        $('.logo').toggle();
+    
+    });
+
+
+
+
+
+
+
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

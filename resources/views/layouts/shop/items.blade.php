@@ -18,8 +18,6 @@
             <h4></h4>
         </div>
 
-          
-
                 <a data-id='{{ $item->id }}' 
 
                 @if(array_key_exists($item->id, $cart)) 
@@ -41,9 +39,7 @@
                     <ion-icon name="cart-outline" class="cart md hydrated" role="img" aria-label="cart outline"></ion-icon>
                 </a>
 
-
                 <!-- <input class='cart-number' type="number" value="1"> -->
-            
 
         </div>
     @endforeach

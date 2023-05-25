@@ -8,7 +8,21 @@
     <h1>    Корзина товаров</h1>
 </div>
 
-<div class='mt-5 container'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class='mt-1 container'>
 
 
 @if($items->count())
@@ -52,6 +66,40 @@
   </tbody>
 </table>
 
+
+
+<div class="screen">
+  <div class="screen-body">
+    <div class="screen-body-item">
+      <div class="app-form">
+        <div class="app-form-group">
+          <input class="app-form-control" placeholder="ФИО" value="Эмилия Низамова">
+        </div>
+        <div class="app-form-group">
+          <input class="app-form-control" placeholder="email">
+        </div>
+        <div class="app-form-group">
+          <input class="app-form-control" placeholder="Телефон">
+        </div>
+        <div class="app-form-group message">
+          <input class="app-form-control" placeholder="Сообщение">
+        </div>
+        <div class="app-form-group buttons">
+          <button class="app-form-button">Отмена</button>
+          <div class=' mx-auto btn btn-success center'>Оформить заявку</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
 @else
 
 
@@ -67,12 +115,6 @@
 <!-- CONTAINER -->
 
 
-
-<div style="display:flex" class='contianer'>
-
-  <div class=' mx-auto btn btn-success center'>Оформить заявку</div>
-
-</div>
 
 </section>
 

@@ -57,7 +57,7 @@ class ItemController extends Controller
 
         }
 
-        dd($data);
+        // dd($data);
 
         $items = Item::whereIn('id', $keys)->get();
     

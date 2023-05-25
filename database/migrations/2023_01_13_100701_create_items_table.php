@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
+            $table->text('text');
             $table->integer('price');
             $table->integer('is_recom');
             $table->boolean('status');  

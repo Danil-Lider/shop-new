@@ -7,8 +7,17 @@ use App\Http\Controllers\OrderItemController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+// gallery
+
+Route::view('/gallery', 'shop.catalog.gallery', ['name' => 'gallery']);
 
 
+// about
+
+Route::view('/about', 'shop.catalog.about', ['name' => 'about']);
+
+
+// shop
 
 Route::get('/', [ItemController::class, 'index'])->name('main');
 

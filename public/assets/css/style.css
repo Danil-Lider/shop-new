@@ -1238,3 +1238,11 @@ input::-webkit-inner-spin-button {
     position: relative;
     margin-top: 1rem;
 }
+
+.delite_from_cart {
+  cursor: pointer;
+}
+
+footer {
+  display: flex !important;
+}
