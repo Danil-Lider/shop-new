@@ -1,7 +1,7 @@
 <section class="footer" style="background-position: 50% 50%;background-repeat: no-repeat;background-size: cover;background-clip: border-box;">
             <footer class="pd-40">
                     <div class="col">
-                        <img style="margin-bottom: 1rem" src="./assets/img/Rectangle 11.png" alt="logo" />
+                        <img style="margin-bottom: 1rem" src="/assets/img/Rectangle 11.png" alt="logo" />
                         <h4>Контактные данные:</h4>
                         <p><strong>Адресс: Шамиля Усманова 61</strong></p>
                         <p><strong>Телефон: 89934131404</strong></p>
@@ -33,11 +33,11 @@
                         <h4>Install up</h4>
                         <p>From App Store or Google Play</p>
                         <div class="row">
-                          <img src="./assets/img/app.jpg" alt="#" />
-                          <img src="./assets/img/play.jpg" alt="#" />
+                          <img src="/assets/img/app.jpg" alt="#" />
+                          <img src="/assets/img/play.jpg" alt="#" />
                         </div>
                         <p>Secure Paymentt Gateways</p>
-                        <img src="./assets/img/pay.png" alt="#" />
+                        <img src="/assets/img/pay.png" alt="#" />
                       </div>
                   
                       <div class="copyright">

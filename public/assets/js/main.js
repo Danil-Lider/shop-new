@@ -7,9 +7,222 @@ $(document).ready(function(){
         }
     });
 
-    console.log(123)
+    // ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
 
     // Добавление в корзину
+    function add_to_cart(ID, count, size = 'default') {
+
+        $.ajax({
+            type: "POST",
+            url: "/cart?act=addToBasket",
+            data: {
+                item_id: ID,
+                count: count,
+                size: size,
+            },
+            success: function (msg) {
+            console.log(msg)
+            },
+        });
+    }
+
+    function delite_item_from_basket_count(ID, count, size) {
+        $.ajax({
+          type: "POST",
+          url: "/cart?act=RemoveCountFromBasket",
+          data: {
+            item_id: ID,
+            count : count,
+            size: size
+          },
+          success: function (msg) {
+            
+            console.log(msg)
+
+          },
+        });
+    }
+
+
+    function delite_item_from_basket(item_id) {
+
+        $.ajax({
+            url: '/cart?act=RemoveFromBasket', // куда отправляем
+            type: "post", // метод передачи
+            dataType: "json", // тип передачи данных
+            data: { // что отправляем
+                "item_id":   item_id
+            },
+            // после получения ответа сервера
+            success: function(data){
+                console.log(data)
+            }
+        }).fail(function(jqXHR, textStatus) {
+            console.log('На сервере ошибка:', textStatus)
+        });
+
+    }
+
+
+
+    // ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИИ КОНЕЦ
+
+
+
+
+
+
+
+
+
+
+    // СТРАНИЦА КОРЗИНЫ
+
+    $(document).on('click', '.delite_from_cart', function(e){
+        
+        e.preventDefault();
+        
+        let id = $(this).data('id');
+
+        $(this).parent().hide();
+
+        delite_item_from_basket(id);
+
+    })
+
+    // СТРАНИЦА КОРЗИНЫ КОНЕЦ 
+
+
+
+
+
+
+
+
+    // ДЕТАЛЬНАЯ СТРАНИЦА ТОВАРА 
+
+    $('.addToCartDetail').click(function(e) {
+
+        e.preventDefault(); 
+
+        $(this).hide();
+
+        $('.product__count').show()
+
+        let id = $('.item_id').data('id');
+
+        let size = $('select').val();
+
+        add_to_cart(id , 1, size);
+
+
+    })
+
+
+
+    // УВЕЛЕЧЕНИЕ КОЛ-во ТОВАРА
+
+    $(document).on('click', '.item__plus', function(e){
+
+        e.preventDefault();
+
+        let input = $(this).siblings('.item__number');
+
+        let id = input.attr('id');
+
+        let first_val = Number(input.val())
+
+        input.val(first_val + 1)
+
+        let count = Number(first_val + 1);
+
+        let size = $('select').val();
+
+        add_to_cart(id, count, size);
+
+    })
+
+
+
+    // УМЕНЬШЕНИЕ КОЛИЧЕСТВА ТОВАРА
+
+    $(document).on('click', '.item__minus', function(e){
+
+        e.preventDefault();
+
+        let input = $(this).siblings('.item__number');
+        let first_val = Number(input.val())
+
+        if(input.val() > 1 || input.val() == 1) {
+            
+            input.val(first_val - 1)
+
+        }
+
+        let id = input.attr('id');
+        let count = Number(input.val())
+        let size = $('select').val();
+
+        if(input.val() < 1) {
+
+            $('.addToCartDetail').show()
+
+            $(this).parent().siblings('.in_cart').hide();
+            $(this).parent().hide();
+            $(this).parent().siblings('.product-item-button-container').show();
+            $(this).parent().siblings('.product-item-button-container').children().show();
+
+            delite_item_from_basket(id);
+         
+        }else{
+
+            delite_item_from_basket_count(id, count, size);
+
+        }
+
+
+
+    })
+
+
+    $(document).on('click', '.remove__cart', function(e){
+        e.preventDefault();
+        let id = $(this).data('id');
+
+        $(this).parent().hide();
+
+        delite_item_from_basket(id);
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     $('.addToCart').click(function(e) {
 

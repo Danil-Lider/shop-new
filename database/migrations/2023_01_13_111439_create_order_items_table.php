@@ -15,13 +15,8 @@ return new class extends Migration
     {
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            $table->string('item_id');
             $table->string('user_id');
-
-            $table->date('date_main', $precision = 0);
-            $table->integer('hour');
-            // $table->timestamp('start_to_book', $precision = 0);
-            // $table->timestamp('end_to_book', $precision = 0);
+            $table->json('json');
             $table->timestamps();
         });
     }

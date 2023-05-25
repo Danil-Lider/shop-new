@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Item;
 
-class BookController extends Controller
+class ItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,7 @@ class BookController extends Controller
     {
 
         $data = Item::paginate(10, ['*'], 'page');
-
-        return view('shop/index-page    ', compact('data'));
+        return view('shop/index-page', compact('data'));
     }
 
 
@@ -33,8 +32,46 @@ class BookController extends Controller
         return view('shop/catalog/catalog-page', compact('data', 'cart'));
     }
 
+
+    public function shop_detail(Request $request, $id)
+    {
+        $data = Item::where('id', $id)->first();
+
+        // dd($data);
+
+        return view('shop/catalog/detail-page', compact('data'));
+
+    }
+
+    public function cart_index(Request $request){
+
+        $data = $request->session()->all();
+
+        $keys = array();
+
+        if($data['cart']){
+
+            foreach($data['cart'] as $k => $t){
+                $keys[] = $k;
+            }
+
+        }
+
+        dd($data);
+
+        $items = Item::whereIn('id', $keys)->get();
+    
+        return view('shop/catalog/cart-page', compact('data', 'items'));
+      
+    }
+
     public function cart(Request $request)
     {
+        $id = isset($request->id) ?  $request->id : 0;
+        $count = isset($request->count) ?  $request->count : 1;
+        $size = isset($request->size) ?  $request->size : 1;
+
+        // print_r($request->size);
 
         if($request->act == 'RemoveFromBasket'){
 
@@ -73,7 +110,32 @@ class BookController extends Controller
                 }
     
                 
-                $cart[$request->item_id] = $request->item_id; 
+                $cart[$request->item_id] = array('id' => $request->item_id, 'count' => $count, 'size' => $size); 
+    
+                session(['cart' => $cart]);
+    
+                print_r($cart);
+    
+            }
+
+
+        }
+
+        if($request->act == 'RemoveCountFromBasket'){
+
+
+            if($request->item_id){
+
+                $data = $request->session()->all();
+    
+                if(isset($data['cart'])){
+                    $cart = $data['cart'];
+                }else{
+                    $cart = array();
+                }
+    
+                
+                $cart[$request->item_id] = array('id' => $request->item_id, 'count' => $count, 'size' => $size); 
     
                 session(['cart' => $cart]);
     

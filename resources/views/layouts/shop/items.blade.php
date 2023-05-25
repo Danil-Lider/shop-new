@@ -7,7 +7,7 @@
             <img src="{{ $item->image }}" alt="#">
             <div class="des">
             <span>{{ $item->price }} руб</span>
-            <h5>{{ $item->name }}</h5>
+            <a class='db' href='/shop/{{ $item->id}}'>{{ $item->name }}</a>
             <div class="star">
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -37,10 +37,12 @@
                  @endif
                 
                 class='RemoveFromCart' href="./discProduct.html"> 
-                     удалить из корзины
+                    Оформить
                     <ion-icon name="cart-outline" class="cart md hydrated" role="img" aria-label="cart outline"></ion-icon>
                 </a>
 
+
+                <!-- <input class='cart-number' type="number" value="1"> -->
             
 
         </div>
@@ -50,7 +52,7 @@
 </div>
 
 
-<div class="wrapBtn">
+<!-- <div class="wrapBtn">
     <a href="cart.php" class="btn">Learn More</a>
-</div>
+</div> -->
 </section>

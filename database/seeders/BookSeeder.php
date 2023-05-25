@@ -24,9 +24,9 @@ class BookSeeder extends Seeder
         // ]);
 
         DB::table('items')->insert([
-            'name' => 'Платье белое',
+            'name' => 'Свитер черно-белый',
             'status' => 1,
-            'image' => 'https://akvateh.su/images/m-gl-2.jpg?crc=3778793399',
+            'image' => '/assets/img/content1.png',
             'price' => rand(100, 1000),
             'is_recom' => 0
         ]);
@@ -35,7 +35,7 @@ class BookSeeder extends Seeder
         DB::table('items')->insert([
             'name' => 'Платье красное',
             'status' => 1,
-            'image' => 'https://akvateh.su/images/m-gl-2.jpg?crc=3778793399',
+            'image' => 'https://nicolewedding.ru/upload/resize_cache/iblock/546/607_800_2/54624fa3b009fc8fe320d13adc689348.jpg',
             'price' => rand(100, 1000),
             'is_recom' => 0
         ]);
@@ -45,10 +45,19 @@ class BookSeeder extends Seeder
         DB::table('items')->insert([
             'name' => 'Платье голубое',
             'status' => 1,
-            'image' => 'https://akvateh.su/images/m-gl-2.jpg?crc=3778793399',
+            'image' => 'https://ru.paulaindress.com/image/cache/catalog/fly-baby-fly/fbf-ayva-01-700x1050-product_thumb.jpg',
             'price' => rand(100, 1000),
             'is_recom' => 0
         ]);
+
+
+        DB::table('items')->insert([
+            'name' => 'Платье зеленое',
+            'status' => 1,
+            'image' => 'https://ae01.alicdn.com/kf/H35799e9f6a6d4cd09d6c9e03c944fd09B.jpg',
+            'price' => rand(100, 1000),
+            'is_recom' => 0
+        ]); 
 
 
 

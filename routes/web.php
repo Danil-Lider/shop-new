@@ -2,29 +2,32 @@
 
 use App\Http\Controllers\New\GetFreeTimeForOrderMainController;
 
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\OrderBookController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\OrderItemController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
 
 
-Route::get('/', [BookController::class, 'index'])->name('main');
+Route::get('/', [ItemController::class, 'index'])->name('main');
 
-Route::get('/shop', [BookController::class, 'shop'])->name('shop');
+Route::get('/shop', [ItemController::class, 'shop'])->name('shop');
+
+Route::get('/shop/{id}', [ItemController::class, 'shop_detail'])->name('shop_detail');
 
 
 // CART
 
-Route::post('/cart', [BookController::class, 'cart']);
+Route::post('/cart', [ItemController::class, 'cart']);
+
+Route::get('/cart', [ItemController::class, 'cart_index'])->name('cart');
 
 
 
+Route::get('/myitems', [OrderItemController::class, 'history'])->name('main')->middleware(['auth', 'verified']);
 
-Route::get('/myitems', [BookController::class, 'index'])->name('main')->middleware(['auth', 'verified']);
-
-Route::get('/myitems', [OrderBookController::class, 'index'])->name('my_items');
+Route::get('/myitems', [OrderItemController::class, 'history'])->name('my_items');
 
 /*
 |--------------------------------------------------------------------------
