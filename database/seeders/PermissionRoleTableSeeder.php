@@ -26,7 +26,7 @@ class PermissionRoleTableSeeder extends Seeder
 
 
         $biblitekar_role = Role::where('name', 'bibliotekar')->firstOrFail();
-        $permissions_for_biblitekar = Permission::where('table_name', 'books')->get();
+        $permissions_for_biblitekar = Permission::where('table_name', 'items')->get();
 
         $admin_permissions = array(1);
 

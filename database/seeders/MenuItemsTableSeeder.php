@@ -182,9 +182,9 @@ class MenuItemsTableSeeder extends Seeder
 
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('Books'),
+            'title'   => __('Items'),
             'url'     => '',
-            'route'   => 'voyager.books.index',
+            'route'   => 'voyager.items.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
