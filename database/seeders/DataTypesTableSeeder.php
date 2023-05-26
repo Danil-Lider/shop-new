@@ -59,9 +59,9 @@ class DataTypesTableSeeder extends Seeder
         $dataType = $this->dataType('slug', 'items');
         if (!$dataType->exists) {
             $dataType->fill([
-                'name'                  => 'Продукты',
-                'display_name_singular' => __('Продукт'),
-                'display_name_plural'   => __('Продукты'),
+                'name'                  => 'items',
+                'display_name_singular' => __('item'),
+                'display_name_plural'   => __('items'),
                 'icon'                  => '',
                 'model_name'            => 'App\\Models\\Item',
                 'controller'            => '',
