@@ -7,7 +7,7 @@ $items = $model->inRandomOrder()->limit(7)->get();
 
 $time = 0;
 
-phpinfo();
+//  
 
 // dd($model->inRandomOrder()->limit(5)->get()); // Выведет все записи из БД
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\New\GetFreeTimeForOrderMainController;
 
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderItemController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,15 +29,23 @@ Route::get('/shop/{id}', [ItemController::class, 'shop_detail'])->name('shop_det
 
 // CART
 
-Route::post('/cart', [ItemController::class, 'cart']);
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
-Route::get('/cart', [ItemController::class, 'cart_index'])->name('cart');
+Route::post('/cart', [CartController::class, 'cart']);
+
+Route::get('/add_in_cart_store', [CartController::class, 'add_in_cart_store'])->name('add_in_cart_store');
 
 
 
-Route::get('/myitems', [OrderItemController::class, 'history'])->name('main')->middleware(['auth', 'verified']);
 
-Route::get('/myitems', [OrderItemController::class, 'history'])->name('my_items');
+
+
+
+
+
+Route::get('/myitems', [ItemController::class, 'history'])->name('main')->middleware(['auth', 'verified']);
+
+Route::get('/myitems', [ItemController::class, 'history'])->name('my_items');
 
 /*
 |--------------------------------------------------------------------------
