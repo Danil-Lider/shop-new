@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
+use App\Models\order_items;
 // use App\Mail\InvoicePaid;
 // use App\Models\Invoice;
 
@@ -164,57 +165,45 @@ class CartController extends Controller
                 $message .= "<td> $item->name </td>";
                 $message .= "<td> $item->price руб </td>";
                 $message .= '<td>Стандартый</td>';
-                $message .= '</tr>';
-              
+                $message .= '</tr>';  
 
             }
 
-            // echo $message;
-            
-
-
             $to  = "marfol@inbox.ru" ; 
-
             $subject = "Запись на примерку"; 
-
             $headers  = "Content-type: text/html; \r\n"; 
             $headers .= "From: От кого письмо <from@example.com>\r\n"; 
             $headers .= "Reply-To: reply-to@example.com\r\n"; 
-
-            // mail($to, $subject, $message, $headers); 
 
             if(  mail($to, $subject, $message, $headers)) {
 
                 echo 'good !';
 
-            }else{
-
-                echo 'error 1';
-                
-                // $errorMessage = error_get_last()['message'];
-                // echo $errorMessage;
-
             }
-     
 
             // return (new InvoicePaid($items))->render();
 
             // dd($items);
 
+
+
+
             $data = $request->session()->all();
 
             $user = Auth::user();
-    
-            $json = json_encode($data['cart']);
-    
-            //Способ 1 saved
-            $role= new order_items();
-            $role->user_id = $user->id;
-            $role->json = $json; 
-            $role->save();
-    
-            $request->session()->forget('cart');
 
+            if(isset($data['cart'])){
+
+                $json = json_encode($data['cart']);
+    
+                //Способ 1 saved
+                $role= new order_items();
+                $role->user_id = $user->id;
+                $role->json = $json; 
+                $role->save();
+        
+                $request->session()->forget('cart');
+            }
             
 
         }
