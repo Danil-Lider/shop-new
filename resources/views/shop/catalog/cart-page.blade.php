@@ -25,6 +25,8 @@
 <div class='mt-1 container'>
 
 
+<form id='cart' action="/add_in_cart_store" name='cart'>
+
 @if($items->count())
 
 <table class="table table-sm">
@@ -38,6 +40,8 @@
     </tr>
   </thead>
   <tbody>
+
+      <input type="hidden" name='items[]' value='{{ $items }} '>
 
         @foreach($items as $key => $item)
 
@@ -73,20 +77,20 @@
     <div class="screen-body-item">
       <div class="app-form">
         <div class="app-form-group">
-          <input class="app-form-control" placeholder="ФИО" value="Эмилия Низамова">
+          <input name='name' class="app-form-control" placeholder="ФИО" value="Эмилия Низамова" required>
         </div>
         <div class="app-form-group">
-          <input class="app-form-control" placeholder="email">
+          <input name='email' class="app-form-control" placeholder="email" required>
         </div>
         <div class="app-form-group">
-          <input class="app-form-control" placeholder="Телефон">
+          <input name='phone' class="app-form-control" placeholder="Телефон" required>
         </div>
         <div class="app-form-group message">
-          <input class="app-form-control" placeholder="Сообщение">
+          <input name='message' class="app-form-control" placeholder="Сообщение">
         </div>
         <div class="app-form-group buttons">
           <button class="app-form-button">Отмена</button>
-          <div class=' mx-auto btn btn-success center'>Оформить заявку</div>
+          <button type="submit" class=' mx-auto btn btn-success center'>Оформить заявку</button>
         </div>
       </div>
     </div>
@@ -95,7 +99,7 @@
 
 
 
-
+</form>
 
 
 

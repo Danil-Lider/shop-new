@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
     
 use Illuminate\Http\Request;
 use App\Models\Item;
+// use App\Mail\InvoicePaid;
+// use App\Models\Invoice;
 
 class CartController extends Controller
 {
@@ -123,19 +125,58 @@ class CartController extends Controller
 
     public function add_in_cart_store(Request $request){
 
-        $data = $request->session()->all();
 
-        $user = Auth::user();
+        if($request->phone &&  $request->name) {
 
-        $json = json_encode($data['cart']);
+            $items = (array) json_decode($request->items[0]);
+            
 
-        //Способ 1 saved
-        $role= new order_items();
-        $role->user_id = $user->id;
-        $role->json = $json; 
-        $role->save();
 
-        $request->session()->forget('cart');
+            $to  = "marfol@inbox.ru" ; 
+
+            $subject = "Запись на примерку"; 
+
+            $message = ' <p>Текст письма</p> </br> <b>1-ая строчка </b> </br><i>2-ая строчка </i> </br>';
+
+            $headers  = "Content-type: text/html; charset=windows-1251 \r\n"; 
+            $headers .= "From: От кого письмо <from@example.com>\r\n"; 
+            $headers .= "Reply-To: reply-to@example.com\r\n"; 
+
+            // mail($to, $subject, $message, $headers); 
+
+            if(  mail($to, $subject, $message, $headers)) {
+
+                echo 'good !';
+
+            }else{
+
+                echo 'error';
+                
+                // $errorMessage = error_get_last()['message'];
+                // echo $errorMessage;
+
+            }
+     
+
+            // return (new InvoicePaid($items))->render();
+
+            dd($items);
+
+            $data = $request->session()->all();
+
+            $user = Auth::user();
+    
+            $json = json_encode($data['cart']);
+    
+            //Способ 1 saved
+            $role= new order_items();
+            $role->user_id = $user->id;
+            $role->json = $json; 
+            $role->save();
+    
+            $request->session()->forget('cart');
+        }
+
       
     }
    
