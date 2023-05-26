@@ -124,7 +124,10 @@ class CartController extends Controller
 
     public function TableHeader()
     {
-        return '<table class="table table-sm">
+        return '
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <table class="table table-sm">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -165,7 +168,7 @@ class CartController extends Controller
 
             }
 
-            echo $message;
+            // echo $message;
             
 
 
@@ -195,7 +198,7 @@ class CartController extends Controller
 
             // return (new InvoicePaid($items))->render();
 
-            dd($items);
+            // dd($items);
 
             $data = $request->session()->all();
 
@@ -210,6 +213,9 @@ class CartController extends Controller
             $role->save();
     
             $request->session()->forget('cart');
+
+            
+
         }
 
       
