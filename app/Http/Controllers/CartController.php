@@ -150,7 +150,7 @@ class CartController extends Controller
 
             }else{
 
-                echo 'error';
+                echo 'error 1';
                 
                 // $errorMessage = error_get_last()['message'];
                 // echo $errorMessage;
