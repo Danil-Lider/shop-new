@@ -139,12 +139,18 @@ class CartController extends Controller
 
     public function add_in_cart_store(Request $request){
 
+        $name = $request->name;
+        $phone = $request->phone;
+        $email =  $request->email;
+        $message = $request->message;
 
-        if($request->phone &&  $request->name) {
+        if($phone &&  $name) {
 
             $items = (array) json_decode($request->items[0]);
 
-            $message = $this->TableHeader();
+            $message = "ФИО: $name \r\n  Телефон: $phone  \r\n  email: $email  \r\n  message: $message ";
+
+            $message .= $this->TableHeader();
 
             foreach($items as $key => $item){
 
@@ -159,7 +165,7 @@ class CartController extends Controller
 
             }
 
-            // echo $message;
+            echo $message;
             
 
 
