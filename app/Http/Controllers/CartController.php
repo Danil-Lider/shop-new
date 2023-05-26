@@ -122,6 +122,20 @@ class CartController extends Controller
        
     }
 
+    public function TableHeader()
+    {
+        return '<table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Фотография</th>
+            <th scope="col">Наименование</th>
+            <th scope="col">Цена</th>
+            <th scope="col">Размер</th>
+          </tr>
+        </thead>
+        <tbody>';
+    }
 
     public function add_in_cart_store(Request $request){
 
@@ -129,6 +143,23 @@ class CartController extends Controller
         if($request->phone &&  $request->name) {
 
             $items = (array) json_decode($request->items[0]);
+
+            $message = $this->TableHeader();
+
+            foreach($items as $key => $item){
+
+                $message .= '<tr>';
+                $message .= "<th scope='row'> $key </th>";
+                $message .= "<td><img height=200 width=150  src=' $item->image' alt=''></td>";
+                $message .= "<td> $item->name </td>";
+                $message .= "<td> $item->price руб </td>";
+                $message .= '<td>Стандартый</td>';
+                $message .= '</tr>';
+              
+
+            }
+
+            // echo $message;
             
 
 
@@ -136,9 +167,7 @@ class CartController extends Controller
 
             $subject = "Запись на примерку"; 
 
-            $message = ' <p>Текст письма</p> </br> <b>1-ая строчка </b> </br><i>2-ая строчка </i> </br>';
-
-            $headers  = "Content-type: text/html; charset=windows-1251 \r\n"; 
+            $headers  = "Content-type: text/html; \r\n"; 
             $headers .= "From: От кого письмо <from@example.com>\r\n"; 
             $headers .= "Reply-To: reply-to@example.com\r\n"; 
 
