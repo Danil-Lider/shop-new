@@ -56,7 +56,11 @@
                         <a href="/profile">
                             <i class="fa fa-user"></i>
 
+                            @if($user)
+
                             {{ $user->name }}
+
+                            @endif
 
                         </a>
                     </div>
