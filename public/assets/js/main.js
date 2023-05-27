@@ -272,33 +272,33 @@ $(document).ready(function(){
 
     // Удаление из корзины
 
-    $('.RemoveFromCart').click(function(e) {
+    // $('.RemoveFromCart').click(function(e) {
 
-        e.preventDefault();
+    //     e.preventDefault();
         
-        var $this = $(this);
-        var item_id = $(this).data('id');
+    //     var $this = $(this);
+    //     var item_id = $(this).data('id');
 
-        $($this).siblings('.addToCart').show()
-        $($this).hide()
+    //     $($this).siblings('.addToCart').show()
+    //     $($this).hide()
       
         
-        $.ajax({
-            url: '/cart?act=RemoveFromBasket', // куда отправляем
-            type: "post", // метод передачи
-            dataType: "json", // тип передачи данных
-            data: { // что отправляем
-                "item_id":   item_id
-            },
-            // после получения ответа сервера
-            success: function(data){
-                console.log(data)
-            }
-        }).fail(function(jqXHR, textStatus) {
-          console.log('На сервере ошибка:', textStatus)
-        });
+    //     $.ajax({
+    //         url: '/cart?act=RemoveFromBasket', // куда отправляем
+    //         type: "post", // метод передачи
+    //         dataType: "json", // тип передачи данных
+    //         data: { // что отправляем
+    //             "item_id":   item_id
+    //         },
+    //         // после получения ответа сервера
+    //         success: function(data){
+    //             console.log(data)
+    //         }
+    //     }).fail(function(jqXHR, textStatus) {
+    //       console.log('На сервере ошибка:', textStatus)
+    //     });
 
-    });
+    // });
 
 
 

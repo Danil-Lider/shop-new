@@ -1246,3 +1246,12 @@ input::-webkit-inner-spin-button {
 footer {
   display: flex !important;
 }
+
+
+@media (max-width: 768px) {
+  
+  .product .container {
+    justify-content: center;
+  }
+
+}

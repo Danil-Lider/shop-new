@@ -25,8 +25,8 @@
                         <p>Комплекты с юбкой бежевого, светлого и серого цвета из качественной плотной ткани. 
                     </div>
                     <div class="wrap__content-3_photo">
-                        <img class="main" src="assets/img/content1.png" alt="#">
-                        <img class="child" src="assets/img/content2.png" alt="#">
+                        <!-- <img class="main" src="assets/img/content1.png" alt="#"> -->
+                        <!-- <img class="child" src="assets/img/content2.png" alt="#"> -->
                     </div>
                 </div>
             </section>

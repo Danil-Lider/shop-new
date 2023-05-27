@@ -12,21 +12,17 @@
                       </div>
                   
                       <div class="col">
-                        <h4>About</h4>
-                        <a href="#">About Us</a>
-                        <a href="#">Delievery Information</a>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Contact Us</a>
+                        <a href="/">Главная</a>
+                        <a href="/shop">Магазин</a>
+                        <a href="/gallery">Галерея</a>
+                        <a href="/about">О нас</a>
                       </div>
                   
                       <div class="col">
-                        <h4>About</h4>
-                        <a href="#">Sihn In</a>
-                        <a href="#">View</a>
-                        <a href="#">Cart</a>
-                        <a href="#">Track</a>
-                        <a href="#">My Order</a>
-                        <a href="#">Help</a>
+                        <a href="/">Главная</a>
+                        <a href="/shop">Магазин</a>
+                        <a href="/gallery">Галерея</a>
+                        <a href="/about">О нас</a>
                       </div>
                   
                       <div class="col install">
