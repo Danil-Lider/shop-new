@@ -27,6 +27,11 @@
 
 <form id='cart' action="/add_in_cart_store" name='cart'>
 
+
+@if (session('success'))
+  <div class="alert alert-success" role="alert"> {{ session('success') }}</div>
+@endif
+
 @if($items->count())
 
 

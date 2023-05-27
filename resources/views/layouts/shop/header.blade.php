@@ -43,15 +43,18 @@
                         <!-- <li @if($_SERVER["REQUEST_URI"] == '/contact') class="active" @endif><a href="/contact">Контакт</a></li> -->
                         <li @if($_SERVER["REQUEST_URI"] == '/about') class="active" @endif><a href="/about">О нас</a></li>
 
-                       
+                        <?php $user = auth()->user(); ?>
 
+                        @if($user)
+
+                            <li @if($_SERVER["REQUEST_URI"] == '/myitems') class="active" @endif><a href="/myitems">История заказов</a></li>
+
+                        @endif
                     </ul>
                     <div class="dis">   
                         <a href="/cart">
                             <i class="fa fa-cart-arrow-down"></i>
                         </a>
-
-                        <?php $user = auth()->user(); ?>
 
                         <a href="/profile">
                             <i class="fa fa-user"></i>

@@ -177,7 +177,7 @@ class CartController extends Controller
 
             if(  mail($to, $subject, $message, $headers)) {
 
-                echo 'good !';
+                // echo 'good !';
 
             }
 
@@ -198,12 +198,22 @@ class CartController extends Controller
     
                 //Способ 1 saved
                 $role= new order_items();
-                $role->user_id = $user->id;
+
+                $role->user_id = isset($user->id) ? $user->id : 0;
+
+                $role->name = $name;
+                $role->phone = $phone;
+                $role->email = $email;
+                $role->message = $message;
+
+
                 $role->json = $json; 
                 $role->save();
         
                 $request->session()->forget('cart');
             }
+
+            return redirect()->route('cart')->with('success', 'Заявка принята !');
             
 
         }

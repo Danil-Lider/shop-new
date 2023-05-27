@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
+            $table->string('name');
+            $table->string('phone');
+            $table->string('email');
+            $table->text('message');
             $table->json('json');
             $table->timestamps();
         });
