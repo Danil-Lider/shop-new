@@ -1304,6 +1304,12 @@ footer {
   .wrap__content-2 h1 {
     font-size: initial;
   }
+  .menu ul {
+    flex-wrap: wrap;
+  }
+  .menu ul li {
+    margin: 5px 4px;
+  }
 }
 
 .table-wrap {

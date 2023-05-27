@@ -10,7 +10,7 @@
     <h1>    Корзина товаров</h1>
 </div>
 
-<div class='container'>
+<div style='overflow-x: auto;' class='container'>
 
 
 @if($new_items)
