@@ -26,12 +26,22 @@
                         <p>Комплекты с юбкой бежевого, светлого и серого цвета из качественной плотной ткани. 
                     </div>
                     <div class="wrap__content-3_photo">
-                        <!-- <img class="main" src="assets/img/content1.png" alt="#"> -->
-                        <!-- <img class="child" src="assets/img/content2.png" alt="#"> -->
+                        <img class="main1" src="assets/img/content1.png" alt="#">
+                        <img class="child1" src="assets/img/content2.png" alt="#">
                     </div>
                 </div>
             </section>
         </section>
         
+
+<style>
+    .main1 , .child1{
+        width:100%;
+    }
+    .wrap__content-3 {
+        flex-wrap:wrap;
+    }
+</style>
+
 
 @include('layouts.shop.footer')
