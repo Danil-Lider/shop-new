@@ -14,6 +14,33 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+     public function shop(Request $request)
+     {
+ 
+        $data = Item::paginate(100, ['*'], 'page');
+
+        $s =  $cart = $request->session()->all();
+
+        $cart = isset($s['cart']) ? $s['cart'] : array(); 
+
+        // check in cart
+
+        foreach($data as $key => $value){
+            if(array_key_exists($value->id, $cart)){
+                $value->in_cart = 1;
+                $value->count = $cart[$value->id]['count'];
+            }
+        }
+
+
+        return view('shop/catalog', compact('data', 'cart'));
+    }
+ 
+
+
+
     public function index()
     {
 
@@ -22,22 +49,10 @@ class ItemController extends Controller
     }
 
 
-    public function shop(Request $request)
-    {
-
-        $data = Item::paginate(100, ['*'], 'page');
-
-        $s =  $cart = $request->session()->all();
-
-        $cart = isset($s['cart']) ? $s['cart'] : array(); 
-
-        return view('shop/catalog/catalog-page', compact('data', 'cart'));
-    }
-
-
     public function shop_detail(Request $request, $id)
     {
-        $data = Item::where('id', $id)->first();    
+        $item = Item::where('id', $id)->first();
+        
 
         $items = Item::where('is_recom', 1)->limit(4)->get();
 
@@ -45,7 +60,19 @@ class ItemController extends Controller
 
         $cart = isset($s['cart']) ? $s['cart'] : array(); 
 
-        return view('shop/catalog/detail-page', compact('data', 'items', 'cart'));
+        if(array_key_exists($item->id, $cart)){
+            $item->in_cart = 1;
+            $item->count = $cart[$item->id]['count'];
+        }
+
+        foreach($items as $key => $value){
+            if(array_key_exists($value->id, $cart)){
+                $value->in_cart = 1;
+                $value->count = $cart[$value->id]['count'];
+            }
+        }
+
+        return view('shop/catalog/detail-page', compact('item', 'items', 'cart'));
 
     }
 
@@ -87,6 +114,8 @@ class ItemController extends Controller
 
 
         return view('shop/catalog/history-page', compact('new_items'));
+
+
 
       
     }

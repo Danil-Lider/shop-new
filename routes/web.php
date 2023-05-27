@@ -8,6 +8,22 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+
+
+
+// shop
+
+Route::get('/shop', [ItemController::class, 'shop'])->name('shop');
+
+Route::get('/shop/{id}', [ItemController::class, 'shop_detail'])->name('shop_detail');
+
+
+
+// index 
+
+Route::get('/', [ItemController::class, 'index'])->name('main');
+
+
 // gallery
 
 Route::view('/gallery', 'shop.catalog.gallery', ['name' => 'gallery']);
@@ -16,15 +32,6 @@ Route::view('/gallery', 'shop.catalog.gallery', ['name' => 'gallery']);
 // about
 
 Route::view('/about', 'shop.catalog.about', ['name' => 'about']);
-
-
-// shop
-
-Route::get('/', [ItemController::class, 'index'])->name('main');
-
-Route::get('/shop', [ItemController::class, 'shop'])->name('shop');
-
-Route::get('/shop/{id}', [ItemController::class, 'shop_detail'])->name('shop_detail');
 
 
 // CART

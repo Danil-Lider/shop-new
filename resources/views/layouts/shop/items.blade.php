@@ -1,9 +1,12 @@
 <div style='display:none;' class="alert alert-success">Товар успешно добавлен в корзину</div>
 
+
 <section class="product pd-40">
     <div class="container">
 
-    @foreach($data as $item)
+
+@foreach($data as $item)
+
         <div class="pro-container">
             <img class='item-images' src="{{ $item->image }}" alt="#">
             <div class="des">
@@ -19,49 +22,38 @@
             <h4></h4>
         </div>
 
-                <a data-id='{{ $item->id }}' 
 
-                @if(array_key_exists($item->id, $cart)) 
-                    style='display:none'
-                 @endif
-                    class='addToCart cart-btn-style' href="#"> 
-                    <ion-icon name="cart-outline" class="cart md hydrated icon-cart" role="img" aria-label="cart outline">
-                        <img class='icon-img' src="/assets/img/cart.png" alt="">
-                        В КОРЗИНУ
-                    </ion-icon>
+        <button data-id='{{ $item->id }}' @if($item->in_cart) style='display:none'  @endif class="addToCart">Добавить в корзину</button>
 
-                   
-                </a>
-
-                <a data-id='{{ $item->id }}' 
-
-                @if(!array_key_exists($item->id, $cart)) 
-                    style='display:none'
-                 @endif
-                
-                class='RemoveFromCart cart-btn-style' href="/cart"> 
-                    <ion-icon name="cart-outline" class="cart md hydrated icon-cart" role="img" aria-label="cart outline">
-                        <img class='icon-img' src="/assets/img/cart.png" alt="">
-                        ОФОРМИТЬ
-                    </ion-icon>
-
-                </a>
-
-                <!-- <input class='cart-number' type="number" value="1"> -->
-
+        <div @if(!$item->in_cart) style='display:none'  @endif class="product__count__container">
+            <button class="item__minus">
+                <svg width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="1" y1="1" x2="11" y2="1" stroke="white" stroke-width="2" stroke-linecap="round"></line>
+                </svg>                                   
+            </button>
+            <input data-id='{{ $item->id }}' id="{{ $item->id }}" class="item_count" value="{{ $item->count ? $item->count : 1 }}" type="number">
+            <button class="item__plus">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 1L6 11M1 6H11" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+                </svg> 
+            </button>
+            <a class='in_cart_text' href="/cart">в корзину</a>
         </div>
-    @endforeach
+
+    </div>
+
+
+@endforeach
+
 
 
 </div>
-
-
-<!-- <div class="wrapBtn">
-    <a href="cart.php" class="btn">Learn More</a>
-</div> -->
 </section>
 
+
+
 <style>
+
 .icon-cart {
     display: flex;
     justify-content:center;

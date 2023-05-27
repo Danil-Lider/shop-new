@@ -1049,6 +1049,20 @@ button.normal {
   transition: 0.2s;
 }
 
+.addToCart {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 30px;
+  color: var(--white);
+  background-color: var(--color30);
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+}
+
+
 .product {
   text-align: center;
   position: relative;
@@ -1203,20 +1217,7 @@ font-size: 24px;
 }
 
 
-.item__plus {
-  width: 36px;
-  cursor: pointer;
-  height: 36px;
-  background: #668BEA;
-  border: none;
-  border-radius: 6px;
-  border-left: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.item__number {
+.item_count {
   width: 45px !important;
   height: 36px !important;
   background: #F3F5F8 !important;
@@ -1229,7 +1230,7 @@ font-size: 24px;
   color: black!important;
   margin-right: 0 !important;
 }
-.item__number:focus {
+.item_count:focus {
   outline: none;
 }
 
@@ -1246,7 +1247,7 @@ input::-webkit-inner-spin-button {
   width: 36px !important;
   border: none !important;
   height: 36px !important;
-  background: #668BEA;
+  background: #2afe3c;
   border-radius: 6px !important;
   border-right: none !important;
   display: flex !important;
@@ -1255,11 +1256,25 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
-.product__count {
+.item__plus {
+  width: 36px;
+  cursor: pointer;
+  height: 36px;
+  background: #2afe3c;
+  border: none;
+  border-radius: 6px;
+  border-left: none;
   display: flex;
-    align-items: center;
-    position: relative;
-    margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.product__count__container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-top: 0rem;
+  justify-content: center;
 }
 
 .delite_from_cart {
@@ -1315,4 +1330,33 @@ footer {
 .table-wrap {
   overflow-x: auto;
   margin-bottom: 1rem;
+}
+
+.in_cart_text {
+  display:block;
+  margin-left:1rem;
+}
+
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  position: fixed;
+  right: 0;
+  z-index: 111;
+  border-radius: 1rem;
+  top: 8rem;
+}
+
+.product__count__container-detail {
+  justify-content: initial;
+  margin-top: 1rem;
 }

@@ -64,7 +64,7 @@ class CartController extends Controller
     
                 session(['cart' => $cart]);
     
-                print_r($cart);
+                return response()->json(['success' => 'success', 'cart' => $cart], 200);
     
             }
 
@@ -88,7 +88,7 @@ class CartController extends Controller
     
                 session(['cart' => $cart]);
     
-                print_r($cart);
+                return response()->json(['success' => 'success', 'cart' => $cart], 200);
     
             }
 
@@ -113,7 +113,7 @@ class CartController extends Controller
     
                 session(['cart' => $cart]);
     
-                print_r($cart);
+                return response()->json(['success' => 'success', 'cart' => $cart], 200);
     
             }
 

@@ -4,7 +4,7 @@
             <section class="Condetails section-p1">
                 <div class="single-pro-image">
 
-                    <img src="{{ $data->image }}" width="100%" class="MainImg" alt="#">
+                    <img src="{{ $item->image }}" width="100%" class="MainImg" alt="#">
 
                  
 
@@ -12,8 +12,8 @@
                 </div>
                 <div class="single-pro-details product__inner_list ">
                     <!-- <h6>Home / Мебель выбранная</h6> -->
-                    <h4>{{ $data->name }} </h4>
-                    <h2>{{ $data->price }} руб</h2>
+                    <h4>{{ $item->name }} </h4>
+                    <h2>{{ $item->price }} руб</h2>
                     <select name='size'>
                         <option value='default'>Выбрать Размер</option>
                         <option value='XS'>XS</option>
@@ -23,29 +23,24 @@
                         <option value='XL'>XL</option>
                     </select>
                     <!-- <input type="number" value="1"> -->
-                    <button class="normal addToCartDetail">Добавить в корзину</button>
+                   
 
+                    <button data-id='{{ $item->id }}' @if($item->in_cart) style='display:none'  @endif class="addToCart">Добавить в корзину</button>
 
-
-
-
-
-                    <div class="product__count product__count-catalog__list" style="display:none">
-		                <button class="item__minus">
-		                    <svg width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-		                        <line x1="1" y1="1" x2="11" y2="1" stroke="white" stroke-width="2" stroke-linecap="round"></line>
-		                    </svg>                                   
-		                </button>
-		                <input data-id='{{ $data->id }}' id="{{ $data->id }}" class=" item_id item__number" value="1" type="number">
-		                <button class="item__plus add_to_basket">
-		                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-		                        <path d="M6 1L6 11M1 6H11" stroke="white" stroke-width="2" stroke-linecap="round"></path>
-		                    </svg> 
-		                </button>
-
-                        <a style='display:block;margin-left:1rem;' href="/cart">в корзину</a>
-
-		            </div>
+                    <div @if(!$item->in_cart) style='display:none'  @endif class="product__count__container-detail product__count__container">
+                        <button class="item__minus">
+                            <svg width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="1" y1="1" x2="11" y2="1" stroke="white" stroke-width="2" stroke-linecap="round"></line>
+                            </svg>                                   
+                        </button>
+                        <input data-id='{{ $item->id }}' id="{{ $item->id }}" class="item_count" value="{{ $item->count ? $item->count : 1 }}" type="number">
+                        <button class="item__plus">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 1L6 11M1 6H11" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+                            </svg> 
+                        </button>
+                        <a class='in_cart_text' href="/cart">в корзину</a>
+                    </div>
 
 
 
@@ -54,7 +49,7 @@
 
 
                     <h4>Описание</h4>
-                    <span>{{ $data->text }}</span>
+                    <span>{{ $item->text }}</span>
                 </div>
             </section>
             <section class="mg-40 newBg product">
