@@ -1305,3 +1305,8 @@ footer {
     font-size: initial;
   }
 }
+
+.table-wrap {
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}

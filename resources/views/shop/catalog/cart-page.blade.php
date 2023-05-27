@@ -29,6 +29,9 @@
 
 @if($items->count())
 
+
+<div class='table-wrap'>
+
 <table class="table table-sm">
   <thead>
     <tr>
@@ -69,7 +72,7 @@
  
   </tbody>
 </table>
-
+</div>
 
 
 <div class="screen">
@@ -77,7 +80,7 @@
     <div class="screen-body-item">
       <div class="app-form">
         <div class="app-form-group">
-          <input name='name' class="app-form-control" placeholder="ФИО" value="Эмилия Низамова" required>
+          <input name='name' class="app-form-control" placeholder="ФИО" value="" required>
         </div>
         <div class="app-form-group">
           <input name='email' class="app-form-control" placeholder="email" required>
