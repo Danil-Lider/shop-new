@@ -17,7 +17,7 @@ class ItemController extends Controller
     public function index()
     {
 
-        $data = Item::paginate(10, ['*'], 'page');
+        $data = Item::paginate(100, ['*'], 'page');
         return view('shop/index-page', compact('data'));
     }
 
@@ -25,7 +25,7 @@ class ItemController extends Controller
     public function shop(Request $request)
     {
 
-        $data = Item::paginate(10, ['*'], 'page');
+        $data = Item::paginate(100, ['*'], 'page');
 
         $s =  $cart = $request->session()->all();
 

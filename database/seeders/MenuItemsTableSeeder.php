@@ -180,21 +180,21 @@ class MenuItemsTableSeeder extends Seeder
         // CUSTOM MENU
 
 
-        // $menuItem = MenuItem::firstOrNew([
-        //     'menu_id' => $menu->id,
-        //     'title'   => __('Items'),
-        //     'url'     => '',
-        //     'route'   => 'voyager.items.index',
-        // ]);
-        // if (!$menuItem->exists) {
-        //     $menuItem->fill([
-        //         'target'     => '_self',
-        //         'icon_class' => 'voyager-data',
-        //         'color'      => null,
-        //         'parent_id'  => null,
-        //         'order'      => 15,
-        //     ])->save();
-        // }
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => __('Items'),
+            'url'     => '',
+            'route'   => 'voyager.items.index',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-data',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 15,
+            ])->save();
+        }
 
 
     }

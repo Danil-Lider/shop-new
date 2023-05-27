@@ -11,14 +11,14 @@ class Item extends Model
 
     protected $table = 'items';
 
-    // protected $fillable = [
-    //     'name',
-    //     'genre',
-    //     'author',
-    //     'publisher',
-    //     'status',
-    //     // 'genre',
-    //     // 'genre',
-    // ];
+    protected $fillable = [
+        'name',
+        'image',
+        'text',
+        'price',
+        'status',
+        // 'genre',
+        // 'genre',
+    ];
 
 }
