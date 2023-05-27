@@ -1,5 +1,6 @@
 @include('layouts.shop.header')
 
+@include('layouts.shop.banner')
 
 <section class="main mg-40">
             <section class="content-1 pd-40">

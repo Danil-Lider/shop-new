@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./assets/img/icons/favicon.ico"/>
 
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?<?php echo time();?>">
 
-    <link rel="stylesheet" href="{{ asset('assets/css/loader.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/rename.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/loader.css') }}?<?php echo time();?>">
+    <link rel="stylesheet" href="{{ asset('assets/css/rename.css') }}?<?php echo time();?>">
 
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
