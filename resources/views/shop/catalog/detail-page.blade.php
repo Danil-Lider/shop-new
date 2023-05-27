@@ -15,7 +15,7 @@
                     <h4>Описание</h4>
                     <h2>{{ $data->price }} руб</h2>
                     <select name='size'>
-                        <option value='default'>Select Size</option>
+                        <option value='default'>Выбрать Размер</option>
                         <option value='XS'>XS</option>
                         <option value='S'>S</option>
                         <option value='M'>M</option>
@@ -58,69 +58,13 @@
                 </div>
             </section>
             <section class="mg-40 newBg product">
-                <h2> Рекомендуемые продукты <div class="container">
-                    <div class="pro-container" onclick="window.location.href='product.html';">
-                        <img src="https://placehold.it/150x80?text=IMAGE" alt="#">
-                        <div class="des">
-                            <span>стул</span>
-                            <h5>Из живого дерева</h5>
-                            <div class="star">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            </div>
-                            <h4>2 400 руб</h4>
-                        </div>
-                        <a href="#"><ion-icon class="cart md hydrated" name="cart-outline" role="img" aria-label="cart outline"></ion-icon></a>
-                    </div>
-                    <div class="pro-container">
-                        <img src="https://placehold.it/150x80?text=IMAGE" alt="#">
-                        <div class="des">
-                            <span>Стул</span>
-                            <h5>Из живого дерева</h5>
-                            <div class="star">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            </div>
-                            <h4>2 400 руб</h4>
-                        </div>
-                        <a href="#"><ion-icon class="cart md hydrated" name="cart-outline" role="img" aria-label="cart outline"></ion-icon></a>
-                    </div>
-                    <div class="pro-container">
-                        <img src="https://placehold.it/150x80?text=IMAGE" alt="#">
-                        <div class="des">
-                            <span>Стул</span>
-                            <h5>Из живого дерева</h5>
-                            <div class="star">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            </div>
-                            <h4>2 400 руб</h4>
-                        </div>
-                        <a href="#"><ion-icon class="cart md hydrated" name="cart-outline" role="img" aria-label="cart outline"></ion-icon></a>
-                    </div>
-                    <div class="pro-container">
-                        <img src="https://placehold.it/150x80?text=IMAGE" alt="#">
-                        <div class="des">
-                            <span>Стул</span>
-                            <h5>Из живого дерева</h5>
-                            <div class="star">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            </div>
-                            <h4>2 400 руб</h4>
-                        </div>
-                        <a href="#"><ion-icon class="cart md hydrated" name="cart-outline" role="img" aria-label="cart outline"></ion-icon></a>
-                    </div>
+                <h2> Рекомендуемые продукты  </h2>
+                <div class="container">
+
+                    @include('layouts.shop.items', ['data' => $items, 'cart' => $cart])
+
                 </div>
-            </h2></section>
+           </section>
         </section>
 
 

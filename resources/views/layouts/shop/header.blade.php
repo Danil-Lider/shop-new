@@ -50,8 +50,14 @@
                         <a href="/cart">
                             <i class="fa fa-cart-arrow-down"></i>
                         </a>
+
+                        <?php $user = auth()->user(); ?>
+
                         <a href="/profile">
                             <i class="fa fa-user"></i>
+
+                            {{ $user->name }}
+
                         </a>
                     </div>
                 </div>

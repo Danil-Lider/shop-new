@@ -37,11 +37,15 @@ class ItemController extends Controller
 
     public function shop_detail(Request $request, $id)
     {
-        $data = Item::where('id', $id)->first();
+        $data = Item::where('id', $id)->first();    
 
-        // dd($data);
+        $items = Item::where('is_recom', 1)->limit(4)->get();
 
-        return view('shop/catalog/detail-page', compact('data'));
+        $s =  $cart = $request->session()->all();
+
+        $cart = isset($s['cart']) ? $s['cart'] : array(); 
+
+        return view('shop/catalog/detail-page', compact('data', 'items', 'cart'));
 
     }
 
