@@ -1249,9 +1249,14 @@ footer {
 
 
 @media (max-width: 768px) {
-  
+
   .product .container {
     justify-content: center;
   }
 
+  .product .pro-container .item-images {
+    width: 100%;
+  }
+  
 }
+

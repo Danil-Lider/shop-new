@@ -5,7 +5,7 @@
 
     @foreach($data as $item)
         <div class="pro-container">
-            <img src="{{ $item->image }}" alt="#">
+            <img class='item-images' src="{{ $item->image }}" alt="#">
             <div class="des">
             <span>{{ $item->price }} руб</span>
             <a class='db item-name' href='/shop/{{ $item->id}}'>{{ $item->name }}</a>

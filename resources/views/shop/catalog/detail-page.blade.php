@@ -12,7 +12,7 @@
                 </div>
                 <div class="single-pro-details product__inner_list ">
                     <!-- <h6>Home / Мебель выбранная</h6> -->
-                    <h4>Описание</h4>
+                    <h4>{{ $data->name }} </h4>
                     <h2>{{ $data->price }} руб</h2>
                     <select name='size'>
                         <option value='default'>Выбрать Размер</option>
@@ -59,13 +59,9 @@
             </section>
             <section class="mg-40 newBg product">
                 <h2> Рекомендуемые продукты  </h2>
-                <div class="container">
-
-                    @include('layouts.shop.items', ['data' => $items, 'cart' => $cart])
-
-                </div>
            </section>
         </section>
-
+        
+        @include('layouts.shop.items', ['data' => $items, 'cart' => $cart])
 
 @include('layouts.shop.footer')
