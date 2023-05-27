@@ -18,12 +18,12 @@
                         <a href="/about">О нас</a>
                       </div>
                   
-                      <div class="col">
+                      <!-- <div class="col">
                         <a href="/">Главная</a>
                         <a href="/shop">Магазин</a>
                         <a href="/gallery">Галерея</a>
                         <a href="/about">О нас</a>
-                      </div>
+                      </div> -->
                   
                       <div class="col install">
                         <h4>Install up</h4>
