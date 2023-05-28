@@ -1,5 +1,23 @@
 $(document).ready(function(){
 
+    //  CART FORM
+
+    $('#cart').submit(function(){
+        $.post(
+            '/add_in_cart_store', // адрес обработчика
+             $("#cart").serialize(), // отправляемые данные  		
+            
+            function(msg) { // получен ответ сервера  
+                $('#cart').hide('slow');
+                // console.log(msg)
+                $('.message').show(200);
+                $('#my_message').html(msg);
+            }
+        );
+        return false;
+    });
+
+
     // mobile
 
     $(document).on('click', '.mobile', function(e){

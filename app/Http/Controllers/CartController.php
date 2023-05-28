@@ -213,7 +213,9 @@ class CartController extends Controller
                 $request->session()->forget('cart');
             }
 
-            return redirect()->route('cart')->with('success', 'Заявка принята !');
+            return response()->json('Заявка принята !', 200);
+
+            // return redirect()->route('cart')->with('success', 'Заявка принята !');
             
 
         }

@@ -14,30 +14,32 @@
 
 
 
+<div class='mt-1 container'>
 
-
-
-
-
+<div style='display:none' class='message'>
+  <div id='my_message' class="alert alert-success" role="alert"> </div>
+  <a href="/shop">перейти в магазин </a>
+</div>
+</div>
 
 
 
 <div class='mt-1 container'>
 
 
-<form id='cart' action="/add_in_cart_store" name='cart'>
+<form id='cart' method='POST' action="/add_in_cart_store" name='cart'>
 
 
-@if (session('success'))
-  <div class="alert alert-success" role="alert"> {{ session('success') }}</div>
-@endif
+
+
+
 
 @if($items->count())
 
 
 <div class='table-wrap'>
 
-<table class="table table-sm">
+<table  class="table table-sm">
   <thead>
     <tr>
       <th scope="col">#</th>

@@ -40,7 +40,7 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
 Route::post('/cart', [CartController::class, 'cart']);
 
-Route::get('/add_in_cart_store', [CartController::class, 'add_in_cart_store'])->name('add_in_cart_store');
+Route::post('/add_in_cart_store', [CartController::class, 'add_in_cart_store'])->name('add_in_cart_store');
 
 
 
