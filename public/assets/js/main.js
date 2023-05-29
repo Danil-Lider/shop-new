@@ -89,8 +89,17 @@ $(document).ready(function(){
 
         e.preventDefault();
 
+        let container = $(this).parent();
         let input = $(this).siblings('.item_count');
         let first_val = Number(input.val())
+        let in_cart_page = 0;
+
+        // CHECK IN CART PAGE
+
+        if(container.hasClass('in_cart_page')){
+            in_cart_page = 1;
+        }
+
 
         if(input.val() > 1 || input.val() == 1) {
             
@@ -108,6 +117,10 @@ $(document).ready(function(){
 
             $(this).parent().siblings('.in_cart').hide();
             $(this).parent().hide();
+
+            if(in_cart_page){   
+                $(this).parent().parent().parent().hide();
+            }
 
             delite_item_from_basket(id);
             

@@ -31,11 +31,18 @@ class CartController extends Controller
 
         }
 
+
         // dd($data);
 
         $items = Item::whereIn('id', $keys)->get();
+
+        $end_price = 0;
+
+        foreach($items as $key => $item){
+            $end_price += $data['cart'][$item->id]['count'] * $item->price;
+        }
     
-        return view('shop/catalog/cart-page', compact('data', 'items'));
+        return view('shop/catalog/cart-page', compact('data', 'items', 'end_price'));
       
     }
 

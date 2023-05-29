@@ -46,7 +46,10 @@
       <th scope="col">Фотография</th>
       <th scope="col">Наименование</th>
       <th scope="col">Цена</th>
+      <th scope="col">количество</th>
       <th scope="col">Размер</th>
+      <th scope="col">итого</th>
+      <th scope="col">удалить</th>
     </tr>
   </thead>
   <tbody>
@@ -58,8 +61,29 @@
         <tr>
         <th scope="row">{{ $key }}</th>
         <td><img height=200 width=150  src="{{ $item->image }}" alt=""></td>
-        <td>{{ $item->name }}</td>
-        <td>{{ $item->price }}</td>
+        <td> <a href="{{ route('shop_detail', ['id' => $item->id]); }}">{{ $item->name }}</a> </td>
+        <td>{{ $item->price }} р</td>
+        <td>
+
+
+        <div class="product__count__container in_cart_page">
+            <button class="item__minus">
+                <svg width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="1" y1="1" x2="11" y2="1" stroke="white" stroke-width="2" stroke-linecap="round"></line>
+                </svg>                                   
+            </button>
+            <input data-id='{{ $item->id }}' id="{{ $item->id }}" class="item_count" value="{{  $data['cart'][$item->id]['count'] ? $data['cart'][$item->id]['count'] : 1 }}" type="number">
+            <button class="item__plus">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 1L6 11M1 6H11" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+                </svg> 
+            </button>
+        </div>
+          
+
+
+        </td>
+       
 
         @if($data['cart'][$item->id]['size'] == 1)
 
@@ -71,6 +95,8 @@
 
         @endif
 
+        <td>{{ $data['cart'][$item->id]['count'] * $item->price}} р</td>
+
         <td class='delite_from_cart' data-id='{{ $item->id }}' style='font-size:1.5rem;'>Х</td>
 
         </tr>
@@ -80,6 +106,13 @@
   </tbody>
 </table>
 </div>
+
+
+<div class='mt-1 mb-2 container'>
+  <div class='btn btn-success'>  Итого: {{ $end_price}} руб</div>
+  <div  onclick="location.reload(); return false;" class='btn btn-primary'>Перерасчет</div>
+</div>
+
 
 
 <div class="screen">
