@@ -16,6 +16,21 @@ class ItemController extends Controller
      */
 
 
+    public function index()
+    {
+
+        $data = Item::paginate(100, ['*'], 'page');
+        return view('main/index', compact('data'));
+    }
+
+    public function modal()
+    {
+
+        $data = Item::paginate(100, ['*'], 'page');
+        return view('main/modal', compact('data'));
+    }
+
+
      public function shop(Request $request)
      {
  
@@ -37,17 +52,6 @@ class ItemController extends Controller
 
         return view('shop/catalog', compact('data', 'cart'));
     }
- 
-
-
-
-    public function index()
-    {
-
-        $data = Item::paginate(100, ['*'], 'page');
-        return view('shop/index-page', compact('data'));
-    }
-
 
     public function shop_detail(Request $request, $id)
     {

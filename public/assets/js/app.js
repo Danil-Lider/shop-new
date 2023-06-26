@@ -1,84 +1,122 @@
-let radius = 240; 
-let autoRotate = true;
-let rotateSpeed = -60; 
-let imgWidth = 140; 
-let imgHeight = 205;
-setTimeout(init, 300);
-let odrag = document.getElementById("drag-container");
-let ospin = document.getElementById("spin-container");
-let carousel = document.getElementById("carousel");
-let aImg = ospin.getElementsByTagName("a");
-ospin.style.width = imgWidth + "px";
-ospin.style.height = imgHeight + "px";
-let ground = document.getElementById("ground");
-ground.style.width = radius * 3 + "px";
-ground.style.height = radius * 3 + "px";
-function init(delayTime) {
-    for (let i = 0; i < aImg.length; i++) {
-        aImg[i].style.transform =
-        "rotateY(" +
-        i * (360 / aImg.length) +
-        "deg) translateZ(" +
-        radius +
-        "px)";
-        aImg[i].style.transition = "transform 1s";
-        aImg[i].style.transitionDelay =
-        delayTime || (aImg.length - i) / 4 + "s";
-    }
-}
-function applyTranform(obj) {
-    if (tY > 180) tY = 180;
-    if (tY < 0) tY = 0;
-    obj.style.transform = "rotateX(" + -tY + "deg) rotateY(" + tX + "deg)";
-}
-function playSpin(yes) {
-    ospin.style.animationPlayState = yes ? "running" : "paused";
-}
-let sX,
-sY,
-nX,
-nY,
-desX = 0,
-desY = 0,
-tX = 0,
-tY = 10;
-if (autoRotate) {
-    let animationName = rotateSpeed > 0 ? "spin" : "spinRevert";
-    ospin.style.animation = `${animationName} ${Math.abs(
-    rotateSpeed
-    )}s infinite linear`;
-}
-carousel.onpointerdown = function(e) {
-    clearInterval(odrag.timer);
-    e = e || window.event;
-    let sX = e.clientX,
-    sY = e.clientY;
-    this.onpointermove = function(e) {
-        e = e || window.event;
-        let nX = e.clientX,
-        nY = e.clientY;
-        desX = nX - sX;
-        desY = nY - sY;
-        tX += desX * 0.1;
-        tY += desY * 0.1;
-        applyTranform(odrag);
-        sX = nX;
-        sY = nY;
-    };
-    this.onpointerup = function(e) {
-        odrag.timer = setInterval(function() {
-            desX *= 0.95;
-            desY *= 0.95;
-            tX += desX * 0.1;
-            tY += desY * 0.1;
-            applyTranform(odrag);
-            playSpin(false);
-            if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
-                clearInterval(odrag.timer);
-                playSpin(true);
+document.addEventListener('DOMContentLoaded', () => {
+
+   const btnMobileMenu = document.querySelector('.btn-burger');
+   const mobileMenu = document.querySelector('.mobile-menu');
+   const logo = document.querySelector('.logo .logo__img');
+   const bodyFix = document.querySelector('body');
+
+
+   btnMobileMenu.onclick = function () {
+      this.classList.toggle('btn-burger-active');
+      mobileMenu.classList.toggle('mobile-menu-active');
+      bodyFix.classList.toggle('body-fix');
+
+      let logoAttr = logo.getAttribute('src');
+
+      if (logoAttr === 'img/white-logo.png') {
+         logo.setAttribute('src', 'img/black-logo.svg');
+      } else {
+         logo.setAttribute('src', 'img/white-logo.png');
+      }
+   }
+
+   gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
+   ScrollSmoother.create({
+      wrapper: '.wrapper',
+      content: '.content'
+   })
+
+   window.addEventListener('scroll', e => {
+      document.documentElement.style.setProperty('--scrollTop', `${this.scrollY}px`) // Update method
+   })
+
+   if (window.innerWidth > 992) {
+
+      gsap.to(".main-section-3__p", {
+         x: 0,
+         duration: 50,
+         transition: "linear",
+         scrollTrigger: {
+            trigger: "main-section-3__p",
+            start: "top 50%",
+            end: "bottom 100%",
+            scrub: 2,
+         }
+      })
+
+      gsap.to(".main-section-2__left, .main-section-2__right", {
+         x: 0,
+         duration: 50,
+         transition: "linear",
+         scrollTrigger: {
+            trigger: "main-section-2",
+            start: "top 50%",
+            end: "bottom 100%",
+            scrub: 2,
+         }
+      })
+
+      gsap.to(".main-section-2__item", {
+         y: 0,
+         duration: 50,
+         transition: "linear",
+         scrollTrigger: {
+            trigger: "main-section-2",
+            start: "top 50%",
+            end: "bottom 100%",
+            scrub: 2,
+         }
+      })
+
+      gsap.to(".spec-2__img", {
+         x: 0,
+         duration: 50,
+         transition: "linear",
+         scrollTrigger: {
+            trigger: "spec-2",
+            start: "top 50%",
+            end: "bottom 100%",
+            scrub: 2,
+         }
+      })
+
+      gsap.to(".spec-1__img", {
+         x: 0,
+         duration: 50,
+         transition: "linear",
+         scrollTrigger: {
+            trigger: "spec-1__pic",
+            start: "top 50%",
+            end: "bottom 100%",
+            scrub: 2,
+         }
+      })
+   }
+
+   // Фильтр на странице модель
+
+   const inputSearch = document.querySelector('.search__input');
+   const itemCarStrings = document.querySelectorAll('tr td:nth-child(2)');
+
+   if (inputSearch) {
+      inputSearch.oninput = function () {
+         for (let itemCarString of itemCarStrings) {
+            let carName = itemCarString.textContent;
+            let carNameRegister = carName.toLowerCase();
+
+            if (carNameRegister.startsWith(this.value.toLowerCase())) {
+               itemCarString.closest('tr').style.display = 'table-row';
+            } else {
+               itemCarString.closest('tr').style.display = 'none';
             }
-        }, 17);
-        this.onpointermove = this.onpointerup = null;
-    };
-    return false;
-};
+         }
+      }
+   }
+
+   let yearFooter = document.querySelector('.date');
+   var date = new Date();
+
+   yearFooter.textContent = date.getFullYear();
+
+})
+

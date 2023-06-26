@@ -10,6 +10,20 @@ use Illuminate\Support\Facades\Route;
 
 
 
+// index 
+
+Route::get('/', [ItemController::class, 'index'])->name('main');
+
+Route::get('/modal.html', [ItemController::class, 'modal'])->name('modal');
+
+
+
+
+
+
+
+
+/*
 
 // shop
 
@@ -19,9 +33,6 @@ Route::get('/shop/{id}', [ItemController::class, 'shop_detail'])->name('shop_det
 
 
 
-// index 
-
-Route::get('/', [ItemController::class, 'index'])->name('main');
 
 
 // gallery
@@ -53,6 +64,9 @@ Route::post('/add_in_cart_store', [CartController::class, 'add_in_cart_store'])-
 Route::get('/myitems', [ItemController::class, 'history'])->name('main')->middleware(['auth', 'verified']);
 
 Route::get('/myitems', [ItemController::class, 'history'])->name('my_items');
+
+
+*/
 
 /*
 |--------------------------------------------------------------------------
