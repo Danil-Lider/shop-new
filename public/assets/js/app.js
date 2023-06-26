@@ -95,23 +95,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
    // Фильтр на странице модель
 
-   const inputSearch = document.querySelector('.search__input');
-   const itemCarStrings = document.querySelectorAll('tr td:nth-child(2)');
+   // const inputSearch = document.querySelector('.search__input');
+   // const itemCarStrings = document.querySelectorAll('tr td:nth-child(2)');
 
-   if (inputSearch) {
-      inputSearch.oninput = function () {
-         for (let itemCarString of itemCarStrings) {
-            let carName = itemCarString.textContent;
-            let carNameRegister = carName.toLowerCase();
+   // if (inputSearch) {
+   //    inputSearch.oninput = function () {
+   //       for (let itemCarString of itemCarStrings) {
+   //          let carName = itemCarString.textContent;
+   //          let carNameRegister = carName.toLowerCase();
 
-            if (carNameRegister.startsWith(this.value.toLowerCase())) {
-               itemCarString.closest('tr').style.display = 'table-row';
-            } else {
-               itemCarString.closest('tr').style.display = 'none';
-            }
-         }
-      }
-   }
+   //          if (carNameRegister.startsWith(this.value.toLowerCase())) {
+   //             itemCarString.closest('tr').style.display = 'table-row';
+   //          } else {
+   //             itemCarString.closest('tr').style.display = 'none';
+   //          }
+   //       }
+   //    }
+   // }
 
    let yearFooter = document.querySelector('.date');
    var date = new Date();

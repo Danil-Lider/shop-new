@@ -31,6 +31,9 @@ class ItemController extends Controller
     }
 
 
+
+    
+
      public function shop(Request $request)
      {
  

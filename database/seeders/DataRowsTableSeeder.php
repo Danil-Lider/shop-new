@@ -75,11 +75,11 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($BookDataType, 'text');
+        $dataRow = $this->dataRow($BookDataType, 'model');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => __('Описание'),
+                'display_name' => __('model'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -90,26 +90,11 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($BookDataType, 'price');
+        $dataRow = $this->dataRow($BookDataType, 'link_youtube');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'number',
-                'display_name' => __('Цена'),
-                'required'     => 1,
-                'browse'       => 1,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'order'        => 2,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($BookDataType, 'is_recom');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'checkbox',
-                'display_name' => __('В рекомендациях'),
+                'type'         => 'text',
+                'display_name' => __('Ссылка на ютуб'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,

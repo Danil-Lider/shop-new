@@ -182,7 +182,7 @@ class MenuItemsTableSeeder extends Seeder
 
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('Items'),
+            'title'   => __('Модели авто'),
             'url'     => '',
             'route'   => 'voyager.items.index',
         ]);
@@ -192,7 +192,7 @@ class MenuItemsTableSeeder extends Seeder
                 'icon_class' => 'voyager-data',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 15,
+                'order'      => 1,
             ])->save();
         }
 

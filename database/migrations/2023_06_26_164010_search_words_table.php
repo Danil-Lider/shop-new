@@ -13,24 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('search_words', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image');
-            $table->string('model');
-            $table->string('link_youtube');
-            $table->boolean('status');  
+            $table->integer('count');
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Обратить миграции.
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('items');
+        Schema::drop('search_words');
     }
 };

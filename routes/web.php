@@ -8,7 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-
+use Illuminate\Http\Request;
 
 // index 
 
@@ -16,7 +16,36 @@ Route::get('/', [ItemController::class, 'index'])->name('main');
 
 Route::get('/modal.html', [ItemController::class, 'modal'])->name('modal');
 
+Route::get('/save_search_word',function (Request $request) {
 
+    // dd($request->get('word'));
+
+    $word = $request->get('word');
+
+    $in_db =  DB::table('search_words')->where('name', $word)->first();
+
+    if($in_db){
+
+        // dd($in_db);
+    
+        $count = $in_db->count;
+
+        $count += 1;
+
+        DB::table('search_words')
+        ->where('id', $in_db->id)
+        ->update(['count' => $count]);
+
+
+    }else{
+        DB::table('search_words')->insert([
+            'name' => $word,
+            'count' => 1,
+        ]);
+    }
+
+    
+});
 
 
 
@@ -88,6 +117,9 @@ Route::get('/myitems', [ItemController::class, 'history'])->name('my_items');
 
 
 // Route::resource('books', OrderBookController::class)->middleware(['auth', 'verified']);
+
+
+
 
 
 Route::group(['prefix' => 'admin'], function () {
