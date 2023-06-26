@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('search_words', function (Blueprint $table) {
+        Schema::create('search', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->integer('count');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::drop('search_words');
+        Schema::drop('search');
     }
 };

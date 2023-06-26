@@ -36,5 +36,11 @@ class PermissionsTableSeeder extends Seeder
         Permission::generateFor('settings');
 
         Permission::generateFor('items');
+
+        // Permission::generateFor('search-words');
+
+        // Permission::generateFor('Search');
+
+        Permission::generateFor('search');
     }
 }

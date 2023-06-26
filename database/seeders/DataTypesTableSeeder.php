@@ -70,6 +70,21 @@ class DataTypesTableSeeder extends Seeder
             ])->save();
         }
 
+
+        $dataType = $this->dataType('slug', 'search');
+        if (!$dataType->exists) {
+            $dataType->fill([
+                'name'                  => 'search',
+                'display_name_singular' => __('search'),
+                'display_name_plural'   => __('search'),
+                'icon'                  => '',
+                'model_name'            => 'App\\Models\\Search',
+                'controller'            => '',
+                'generate_permissions'  => 1,
+                'description'           => '',
+            ])->save();
+        }
+
     }
 
     /**

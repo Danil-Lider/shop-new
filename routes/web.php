@@ -22,25 +22,26 @@ Route::get('/save_search_word',function (Request $request) {
 
     $word = $request->get('word');
 
-    $in_db =  DB::table('search_words')->where('name', $word)->first();
+    $in_db =  DB::table('search')->where('name', $word)->first();
 
     if($in_db){
-
-        // dd($in_db);
     
         $count = $in_db->count;
 
         $count += 1;
 
-        DB::table('search_words')
+        DB::table('search')
         ->where('id', $in_db->id)
-        ->update(['count' => $count]);
+        ->update(['count' => $count, 'updated_at' => now()]);
 
 
     }else{
-        DB::table('search_words')->insert([
+        
+        DB::table('search')->insert([
             'name' => $word,
             'count' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 

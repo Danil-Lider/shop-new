@@ -103,21 +103,14 @@
 
                                 @endif
                             </td>
-                            <td>{{ $value->model}}}</td>
+                            <td>{{ $value->model}}</td>
                             <td><a class="table-btn" href="">Заказать</a></td>
                         </tr>
 
                     @endforeach
 
 
-                    <tr>
-                        <td>93</td>
-                        <td>GEELY PREFACE 2021</td>
-                        <td><img src="" alt=""></td>
-                        <td></td>
-                        <td>TG-JL-05</td>
-                        <td><a class="table-btn" href="">Заказать</a></td>
-                    </tr>
+                    
                    
 
                     </tbody>
