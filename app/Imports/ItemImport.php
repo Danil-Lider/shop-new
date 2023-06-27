@@ -5,7 +5,9 @@ namespace App\Imports;
 use App\Models\Item;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class ItemImport implements ToModel
+use Maatwebsite\Excel\Concerns\WithStartRow;
+
+class ItemImport implements ToModel,  WithStartRow
 {
     /**
     * @param array $row
@@ -14,15 +16,21 @@ class ItemImport implements ToModel
     */
     public function model(array $row)
     {
-        if(!Item::where('model', '=', $row[3])->exists()) {
+        if(!Item::where('model', '=', $row[2])->exists()) {
 
             return new Item([
+                'article_for_1c' => $row['0'],
                 'name' => $row[1],
-                'model' => $row[3]
+                'model' => $row[2]
             ]);
 
         }
 
+    }
+
+    public function startRow(): int
+    {
+       return 2;
     }
 
     // public function rules(): array

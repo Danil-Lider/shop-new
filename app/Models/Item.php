@@ -17,6 +17,7 @@ class Item extends Model
         'model',
         'link_youtube',
         'status',
+        'article_for_1c'
         // 'genre',
         // 'genre',
     ];
