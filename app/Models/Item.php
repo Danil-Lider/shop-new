@@ -14,11 +14,12 @@ class Item extends Model
     protected $fillable = [
         'name',
         'image',
-        'text',
-        'price',
+        'model',
+        'link_youtube',
         'status',
         // 'genre',
         // 'genre',
     ];
 
+    // protected $guarded= ['link_youtube'];
 }

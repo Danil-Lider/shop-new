@@ -91,12 +91,10 @@
 
 
 <style>
-   .search__input {
-border: 1px solid;
-}
+
 
 .form-check, .form-group {
-margin-top: 2rem;
+   margin-top: 24px;
 }
 .main-section-3__btn {
 margin-top: 2rem;
@@ -109,58 +107,117 @@ overflow-x: hidden;
 
 /* фон нашего модального окна */
 .modalBackground {
-display: none;
-background: rgba(0, 0, 0, 0.8);
-position: fixed;
-width: 100%;
-height: 100%;
-cursor: pointer;
-/* указываем z-индекс для корректного наслаивания */
-z-index: 1;
-top: 0;
-left: 0;
+   display: none;
+   background: rgba(0, 0, 0, 0.8);
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   cursor: pointer;
+   /* указываем z-индекс для корректного наслаивания */
+   z-index: 10;
+   top: 0;
+   left: 0;
 }
 
 /* позиционирование самого модального окна */
 .modalActive {
-position: absolute;
-/*width: avto;*/
-width: auto;
-/*height: 495px;*/
-height: min-content;
-top: calc(50% - 250px);
-left: calc(50% - 175px);
+   position: absolute;
+   /*width: avto;*/
+   width: auto;
+   /*height: 495px;*/
+   height: min-content;
+   top: calc(50% - 250px);
+   left: calc(50% - 175px);
 
-border-radius: 10px;
-background-color: rgb(255, 255, 255);
-cursor: default;
-padding: 40px 20px;
-width: 530px;
-width: auto;
-/*height: 580px;*/
-/*height: */
+   /* border-radius: 10px; */
+   background-color: rgb(255, 255, 255);
+   cursor: default;
+   padding: 80px 50px;
+   width: 530px;
+   width: auto;
+   /*height: 580px;*/
+   /*height: */
+   background: #E4E4E4;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   top: 50%;
+   /* transform: translateY(-50%); */
 }
 
 /* кнопочка закрытия модального окна */
 .modalClose {
-font-family: var(--font-regular);
-position: absolute;
-right: 5px;
-top: 5px;
-width: 30px;
-height: 30px;
-cursor: pointer;
+   font-family: var(--font-regular);
+   position: absolute;
+   right: 5px;
+   top: 5px;
+   width: 30px;
+   height: 30px;
+   cursor: pointer;
 }
 
 /* сама картинка кнопочки закрытия */
 .modalClose img {
-margin: 3px;
-width: 24px;
-height: 24px;
+   margin: 3px;
+   width: 24px;
+   height: 24px;
 }
 
 /* делаем позиционирование внутренних элементов относительно модального окна */
 .modalWindow {
-position: relative;
+   position: relative;
+}
+
+.form-group-title {
+   color: #000;
+   font-size: 13px;
+   font-family: Inter;
+}
+
+.form-group-input {
+   border: none;
+   color: #000;
+   font-size: 40px;
+   font-family: Inter;
+   background:none;
+}
+
+.form-group-main-input {
+   border-radius: 77px;
+   background: #FFF;
+   border-radius: 77px;
+   background: #FFF;
+   height: 87px;
+   width: 100%;
+   padding-left: 4rem;
+   border: none;
+}
+.form-btn {
+   border-radius: 55px;
+   background: #5360D0;
+   border:none !important;
+   margin: 0 auto;
+   display: block;
+   margin-top: 52px;
+}
+.form-check label {
+   font-size: 12px;
+   font-family: Inter;
+}
+.modalClose {
+   margin-top: 26px;
+   margin-right: 35px;
+}
+
+@media screen and (max-width: 762px) {
+   .modalActive {
+      width: 100%;
+      padding:40px 20px;
+   }
+   .form-group-input {
+      font-size: 34px;
+   }
+   .form-btn {
+      font-size: 25px;
+   }
 }
 </style>

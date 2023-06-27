@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
+            $table->string('article_for_1c');
             $table->string('name');
             $table->string('image');
             $table->string('model');

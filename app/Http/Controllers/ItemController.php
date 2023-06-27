@@ -7,6 +7,15 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use App\Models\order_items;
 
+
+
+
+use App\Exports\ItemExport; 
+use App\Imports\ItemImport;
+use Maatwebsite\Excel\Facades\Excel;
+
+
+
 class ItemController extends Controller
 {
     /**
@@ -14,6 +23,43 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
+     public function excel_index()
+     {
+         $movies = Item::get();
+         return view('excel.index', compact('movies'));
+     }
+ 
+     public function excel_import()
+     {
+         if(request()->hasFile('file')) {
+             Excel::import(new ItemImport, request()->file('file')->store('temp'));
+         }
+         return redirect()->back();
+     }
+ 
+     public function excel_export()
+     {
+         return Excel::download(new ItemExport, 'movies.xlsx');
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function index()

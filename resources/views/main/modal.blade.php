@@ -5,7 +5,10 @@
 <div class="modalBackground">
 <div class="modalActive">
     <div class="modalClose">
-        X
+        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 2L23.5 23.5" stroke="black" stroke-width="3"/>
+            <path d="M23.5 2L2 23.5" stroke="black" stroke-width="3"/>
+        </svg>
     </div>
     <div class="modalWindow">
         <form  id="idForm" type='POST' action="https://keksgrad.ru/tg/request" class="form-submit">
@@ -14,33 +17,33 @@
                 <div style="display: none" class="form-detail">
 
                     <div class="form-group">
-                    <b>Марка и модель авто: </b>
+                    <div class='form-group-title'>Марка и модель авто: </div>
                     <!-- <div> ACURA CDX 2016-2021</div> -->
-                    <input class="avto" type="" name="avto" value="">
+                    <input readonly class="avto form-group-input" type="" name="avto" value="">
                     </div>
 
                     <div class="form-group">
-                    <b>Модель подъемника: </b>
+                    <div class='form-group-title'>Модель подъемника: </div>
                     <!-- <div class="model"> </div> -->
-                    <input class="model" type="text" name="model" value="">
+                    <input readonly class="model form-group-input" type="text" name="model" value="">
                     </div>
 
                 </div>
 
                 <div class="form-group">
                 <!-- <label for="exampleInputEmail1">Email address</label> -->
-                <input required name="name" class=" form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ваш ФИО">
+                <input required name="name" class="form-group-main-input form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ваш ФИО">
                 </div>
                 <div class="form-group">
                 <!-- <label for="exampleInputPassword1">Password</label> -->
-                <input required name="phone" class=" form-control" id="exampleInputPassword1" placeholder="Ваш телефон">
+                <input required name="phone" class="form-group-main-input form-control" id="exampleInputPassword1" placeholder="Ваш телефон">
                 </div>
                 <div class="form-check">
                 <input required  type="checkbox" class=" form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Согласен на обработку данных</label>
                 </div>
                 <div class="main-section-3__btn">
-                    <button type="submit" class=" btn btn-primary">Отправить</button>
+                    <button type="submit" class="form-btn btn btn-primary">Отправить</button>
                 </div>
             </div>
 
@@ -193,7 +196,7 @@ const modalActive = document.getElementsByClassName("modalActive")[0];
 
 // функция для корректировки положения body при появлении ползунка прокрутки
 function bodyMargin() {
-bodyElementHTML.style.marginRight = "-" + scrollbarWidth + "px";
+// bodyElementHTML.style.marginRight = "-" + scrollbarWidth + "px";
 }
 
 // при длинной странице - корректируем сразу
@@ -229,18 +232,18 @@ modalTrigger.on( "click", function(e) {
 
     // если размер экрана больше 1366 пикселей (т.е. на мониторе может появиться ползунок)
     if (windowInnerWidth >= 1366) {
-        bodyMargin();
+        // bodyMargin();
     }
 
     // позиционируем наше окно по середине, где 175 - половина ширины модального окна
-    modalActive.style.left = "calc(50% - " + (175 - scrollbarWidth / 2) + "px)";
+    // modalActive.style.left = "calc(50% - " + (175 - scrollbarWidth / 2) + "px)";
     });
 
     // нажатие на крестик закрытия модального окна
     modalClose.addEventListener("click", function () {
     modalBackground.style.display = "none";
     if (windowInnerWidth >= 1366) {
-        bodyMargin();
+        // bodyMargin();
     }
     });
 
@@ -249,7 +252,7 @@ modalTrigger.on( "click", function(e) {
     if (event.target === modalBackground) {
         modalBackground.style.display = "none";
         if (windowInnerWidth >= 1366) {
-            bodyMargin();
+            // bodyMargin();
         }
     }
 });

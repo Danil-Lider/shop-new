@@ -10,6 +10,19 @@ use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // index 
 
 Route::get('/', [ItemController::class, 'index'])->name('main');
@@ -121,6 +134,9 @@ Route::get('/myitems', [ItemController::class, 'history'])->name('my_items');
 
 
 
+Route::get('/',                             [ItemController::class, 'excel_index']); 
+Route::post('/import',                      [ItemController::class, 'excel_import']); 
+Route::get('/export',                       [ItemController::class, 'excel_export']); 
 
 
 Route::group(['prefix' => 'admin'], function () {
