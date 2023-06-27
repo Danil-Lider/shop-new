@@ -14,12 +14,21 @@ class ItemImport implements ToModel
     */
     public function model(array $row)
     {
-        // dd($row);
+        if(!Item::where('model', '=', $row[3])->exists()) {
 
-        return new Item([
-            'name' => $row[1],
-            'image' => $row[2],
-            'model' => $row[3]
-        ]);
+            return new Item([
+                'name' => $row[1],
+                'model' => $row[3]
+            ]);
+
+        }
+
     }
+
+    // public function rules(): array
+    // {
+    //     return [
+    //         '3' => Rule::unique(['model', 'model'])
+    //     ];
+    // }
 }

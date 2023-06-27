@@ -134,13 +134,15 @@ Route::get('/myitems', [ItemController::class, 'history'])->name('my_items');
 
 
 
-Route::get('/',                             [ItemController::class, 'excel_index']); 
-Route::post('/import',                      [ItemController::class, 'excel_import']); 
-Route::get('/export',                       [ItemController::class, 'excel_export']); 
+
 
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
+    Route::get('/excel',                             [ItemController::class, 'excel_index'])->name('excel'); 
+    Route::post('/import',                      [ItemController::class, 'excel_import']); 
+    Route::get('/export',                       [ItemController::class, 'excel_export']); 
 });
 
 

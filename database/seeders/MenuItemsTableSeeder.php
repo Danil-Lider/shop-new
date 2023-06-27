@@ -214,5 +214,22 @@ class MenuItemsTableSeeder extends Seeder
         }
 
 
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => __('Импорт excel'),
+            'url'     => '',
+            'route'   => 'excel',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-data',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 1,
+            ])->save();
+        }
+
+
     }
 }
