@@ -92,11 +92,26 @@
                  
 
                     @foreach($data as $key => $value)
-                  
+
+
+                        
                         <tr>
                             <td>{{ $key+1 }}</td>
                             <td>{{ $value->name }}</td>
-                            <td><img src="{{ $value->image }}" alt=""></td>
+                            <td> 
+                                <?php
+                                    $chars = ['[',']']; // символы для удаления
+                                    $img = str_replace($chars, '',  $value->image); // PHP код
+                                    $img = json_decode($img);
+                                ?>
+
+                                @if($img)
+
+                                    <img src=" {{ asset('storage') . '/' . $img->download_link }}" alt="">
+
+
+                                @endif
+                            </td>
                             <td>
                                 @if(strlen($value->link_youtube) > 2)
                                 

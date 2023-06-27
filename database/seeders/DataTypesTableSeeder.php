@@ -60,8 +60,8 @@ class DataTypesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'items',
-                'display_name_singular' => __('item'),
-                'display_name_plural'   => __('items'),
+                'display_name_singular' => __('Модель авто'),
+                'display_name_plural'   => __('Модели авто'),
                 'icon'                  => '',
                 'model_name'            => 'App\\Models\\Item',
                 'controller'            => '',
@@ -75,8 +75,8 @@ class DataTypesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'search',
-                'display_name_singular' => __('search'),
-                'display_name_plural'   => __('search'),
+                'display_name_singular' => __('поисковой запрос'),
+                'display_name_plural'   => __('Поисковые запросы'),
                 'icon'                  => '',
                 'model_name'            => 'App\\Models\\Search',
                 'controller'            => '',

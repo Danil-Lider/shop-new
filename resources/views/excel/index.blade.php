@@ -8,9 +8,9 @@
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 
-<main>
+<main style='margin-left:2rem;'>
     
-    <div class="row mb-2">
+    <div class="row mb-2 panel-body">
         <div class="col-sm-8 offset-2">
             <div class="row">
                 <div class="col-md-6">
@@ -19,17 +19,17 @@
                         <div class="input-group">
                             <div class="custom-file">
                                 <input type="file" name="file" class="custom-file-input" id="inputGroupFile" required accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
-                                <label class="custom-file-label" for="inputGroupFile">Choose file</label>
+                                <label class="custom-file-label" for="inputGroupFile">Выберите файл</label>
                             </div>
                             <div class="input-group-append">
-                                <button type="submit" class="btn btn-primary float-right mr-2">Import <i class="fa fa-upload"></i></button>
+                                <button type="submit" class="btn btn-primary float-right mr-2">Импорт <i class="fa fa-upload"></i></button>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="col-md-6">
                     <a href="{{ url('admin/export') }}" class="btn btn-primary float-right @if(count($movies) == 0) disabled @endif" role="button" aria-disabled="true">
-                        Export <i class="fa fa-download"></i>
+                        Экспорт <i class="fa fa-download"></i>
                     </a>
                 </div>
             </div>
@@ -41,10 +41,9 @@
                 <thead>
                     <tr>
                         <th scope="col">Id</th>
-                        <th scope="col">Movie</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Director</th>
-                        <th scope="col">Rating</th>
+                        <th scope="col">Марка и модель авто</th>
+                        <th scope="col">Модель подъемника (уникальная)</th>
+                       
                     </tr>
                 </thead>
                 <tbody>

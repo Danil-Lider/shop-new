@@ -143,7 +143,7 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($BookDataType, 'image');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'text',
+                'type'         => 'file',
                 'display_name' => __('image'),
                 'required'     => 1,
                 'browse'       => 1,

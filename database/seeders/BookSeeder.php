@@ -26,7 +26,7 @@ class BookSeeder extends Seeder
         DB::table('items')->insert([
             'name' => 'Универсальный',
             'model' => 'TG-KS kick sensor',
-            'image' => 'img/auto/auto-2.jpg',
+            'image' => '',
             'link_youtube' => 'vk.com',
             'status' => 1,
         ]);
