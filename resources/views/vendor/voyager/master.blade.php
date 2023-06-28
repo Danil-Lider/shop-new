@@ -28,6 +28,19 @@
         <link rel="stylesheet" href="{{ voyager_asset('css/rtl.css') }}">
     @endif
 
+    <script>
+         window.addEventListener("load", function load() {
+            
+            document.querySelectorAll('.profile-img').forEach(function(item){
+                item.src='https://cdn-icons-png.flaticon.com/512/3048/3048122.png';
+            })
+
+            document.querySelector('.side-menu .panel.widget').src='https://cdn-icons-png.flaticon.com/512/3048/3048122.png';
+          
+
+        }, false);
+    </script>
+
     <!-- Few Dynamic Styles -->
     <style type="text/css">
 
@@ -35,10 +48,7 @@
             opacity: 0;
         }
 
-        .profile-img {
-
-        }   
-
+       
         .logo-icon-container {
             opacity: 0;
         }
