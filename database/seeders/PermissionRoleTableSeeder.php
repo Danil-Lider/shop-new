@@ -27,10 +27,11 @@ class PermissionRoleTableSeeder extends Seeder
 
         $biblitekar_role = Role::where('name', 'bibliotekar')->firstOrFail();
         $permissions_for_biblitekar = Permission::where('table_name', 'items')->get();
+        $permissions_for_biblitekar1 = Permission::where('table_name', 'search')->get();
 
         $admin_permissions = array(1);
 
-        $permissions_for_biblitekar_all = array_merge($admin_permissions, $permissions_for_biblitekar->pluck('id')->all());
+        $permissions_for_biblitekar_all = array_merge($admin_permissions, $permissions_for_biblitekar->pluck('id')->all(),  $permissions_for_biblitekar1->pluck('id')->all());
 
         // dd($permissions_for_biblitekar_all);
 
