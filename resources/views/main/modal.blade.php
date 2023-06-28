@@ -293,34 +293,60 @@ modalTrigger.on( "click", function(e) {
 
         console.log(itemCarStrings)
 
+        var lastCall = 0;
+
+        function AjaxPostWord() {
+
+            var now = Date.now();
+
+            if(now - lastCall > 1000){
+                
+                var inputSearchElement =  $('.search__input')
+
+                // const timerId = setTimeout(() => {
+
+                    $.ajax({
+                        type: "get",
+                        url: '/save_search_word',
+                        dataType: 'json',
+                        data: { 
+                            'word' : inputSearchElement.val(),
+                        },
+                        success: function(data)
+                        { 
+                            console.log(data)
+                        }
+                    });
+
+                // }, 3000);
+
+                lastCall = now;
+            }
+        }
+
+
         if (inputSearch) {
 
           
 
                 inputSearch.oninput = function (event) {
 
-                   
-                  
-
+                
                     if(this.value.length > 2){
+
+                        // clearTimeout(timerId);
+                        AjaxPostWord()
                         
                         // clearTimeout(timerId);
                             
                         // const timerId = setTimeout(() => {
-
-                        $.ajax({
-                                type: "get",
-                                url: '/save_search_word',
-                                dataType: 'json',
-                                data: {
-                                    'word' : this.value,
-                                },
-                                success: function(data)
-                                { 
-                                    setTimeout(() => {}, 1000);
-                                }
-                            });
                             
+
+
+                        // }, 3000);
+
+                        
+                        
                         // }, 1000);
                         // останавливаем таймер
                         

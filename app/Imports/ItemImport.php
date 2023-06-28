@@ -26,7 +26,7 @@ class ItemImport implements ToModel,  WithStartRow
 
         }else{
 
-            if(!Item::where('model', '=', $row[2])->exists() && !empty( $row[1])) {
+            if(($row[2] == '' || !Item::where('model', '=', $row[2])->exists()) && !empty( $row[1])) {
 
                 return new Item([
                     'article_for_1c' => $row['0'],
