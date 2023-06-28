@@ -124,6 +124,8 @@ return [
     |
     */
 
+    
+
     'dashboard' => [
         // Add custom list items to navbar's dropdown
         'navbar_items' => [

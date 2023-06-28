@@ -28,9 +28,9 @@
                     </form>
                 </div>
                 <div class="col-md-6">
-                    <a href="{{ url('admin/export') }}" class="btn btn-primary float-right @if(count($movies) == 0) disabled @endif" role="button" aria-disabled="true">
+                    <!-- <a href="{{ url('admin/export') }}" class="btn btn-primary float-right @if(count($movies) == 0) disabled @endif" role="button" aria-disabled="true">
                         Экспорт <i class="fa fa-download"></i>
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>
