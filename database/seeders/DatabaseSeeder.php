@@ -30,9 +30,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\User::factory()->create([
-            'name' => 'bibliotekar',
-            'email' => 'bibliotekar@example.com',
-            'password' => bcrypt('123'),
+            'name' => 'Редактор',
+            'email' => 'incar_redactor@mail.ru',
+            'password' => bcrypt('Prdgkvs!333'),
             'role_id' => 3,
         ]);
 
