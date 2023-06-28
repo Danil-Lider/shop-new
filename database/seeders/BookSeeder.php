@@ -26,7 +26,7 @@ class BookSeeder extends Seeder
         DB::table('items')->insert([
             'name' => 'Универсальный',
             'model' => 'TG-KS kick sensor',
-            'image' => '',
+            // 'image' => '',
             'link_youtube' => 'vk.com',
             'status' => 1,
         ]);
@@ -35,7 +35,7 @@ class BookSeeder extends Seeder
         DB::table('items')->insert([
             'name' => 'ACURA CDX 2016-2021',
             'model' => 'TG-AR-01',
-            'image' => '',
+            // 'image' => '',
             'link_youtube' => '',
             'status' => 1,
         ]);
@@ -44,7 +44,7 @@ class BookSeeder extends Seeder
         DB::table('items')->insert([
             'name' => 'BWM 5 series 2011-2017',
             'model' => 'TG-BW-06',
-            'image' => '',
+            // 'image' => '',
             'link_youtube' => '',
             'status' => 1,
         ]);
