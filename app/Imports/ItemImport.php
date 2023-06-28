@@ -16,15 +16,28 @@ class ItemImport implements ToModel,  WithStartRow
     */
     public function model(array $row)
     {
-        if(!Item::where('model', '=', $row[2])->exists()) {
 
-            return new Item([
-                'article_for_1c' => $row['0'],
-                'name' => $row[1],
-                'model' => $row[2]
-            ]);
+        if(Item::where('article_for_1c', '=', $row[0])->exists() && !empty($row[0])){
 
+            // dd($row);
+
+            Item::where('article_for_1c', '=', $row[0])
+            ->update(['name' => $row[1], 'model' => $row[2]]);
+
+        }else{
+
+            if(!Item::where('model', '=', $row[2])->exists() && !empty( $row[1])) {
+
+                return new Item([
+                    'article_for_1c' => $row['0'],
+                    'name' => $row[1],
+                    'model' => $row[2]
+                ]);
+    
+            }
         }
+
+        
 
     }
 

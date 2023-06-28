@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('article_for_1c')->nullable();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('image')->nullable();
-            $table->string('model')->unique();
+            $table->string('model')->nullable();
             $table->string('link_youtube')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();

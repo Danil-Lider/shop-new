@@ -33,6 +33,8 @@ Route::get('/save_search_word',function (Request $request) {
 
     // dd($request->get('word'));
 
+    // sleep(2);
+
     $word = $request->get('word');
 
     $in_db =  DB::table('search')->where('name', $word)->first();

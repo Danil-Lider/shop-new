@@ -35,6 +35,14 @@ class ItemController extends Controller
      public function excel_import()
      {
          if(request()->hasFile('file')) {
+
+            // dd(request()->file('file'));
+
+            // $path1 = request()->file('file')->store('temp'); 
+            // $path=storage_path('app').'/'.$path1;  
+            // $data = \Excel::import(new ItemImport,$path);
+
+
              Excel::import(new ItemImport, request()->file('file')->store('temp'));
          }
          return redirect()->back();

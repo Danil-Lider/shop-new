@@ -2,6 +2,8 @@
 
 <section>
 <div class="container">
+
+
 <div class="modalBackground">
 <div class="modalActive">
     <div class="modalClose">
@@ -292,38 +294,62 @@ modalTrigger.on( "click", function(e) {
         console.log(itemCarStrings)
 
         if (inputSearch) {
-            inputSearch.oninput = function (event) {
 
-                if(this.value.length > 2){
+          
+
+                inputSearch.oninput = function (event) {
+
+                   
+                  
+
+                    if(this.value.length > 2){
+                        
+                        // clearTimeout(timerId);
+                            
+                        // const timerId = setTimeout(() => {
+
+                        $.ajax({
+                                type: "get",
+                                url: '/save_search_word',
+                                dataType: 'json',
+                                data: {
+                                    'word' : this.value,
+                                },
+                                success: function(data)
+                                { 
+                                    setTimeout(() => {}, 1000);
+                                }
+                            });
+                            
+                        // }, 1000);
+                        // останавливаем таймер
+                        
+                                                
+
+                    
 
 
-                    $.ajax({
-                        type: "get",
-                        url: '/save_search_word',
-                        dataType: 'json',
-                        data: {
-                            'word' : this.value,
-                        },
-                        success: function(data)
-                        { 
-                            console.log(data)
-                        }
-                    });
-
-                }
-
-
-                for (let itemCarString of itemCarStrings) {
-                    let carName = itemCarString.textContent;
-                    let carNameRegister = carName.toLowerCase();
-
-                    if (carNameRegister.startsWith(this.value.toLowerCase())) {
-                        itemCarString.closest('tr').style.display = 'table-row';
-                    } else {
-                        itemCarString.closest('tr').style.display = 'none';
                     }
+
+
+                    for (let itemCarString of itemCarStrings) {
+                        let carName = itemCarString.textContent;
+                        let carNameRegister = carName.toLowerCase();
+
+                        if (carNameRegister.startsWith(this.value.toLowerCase())) {
+                            itemCarString.closest('tr').style.display = 'table-row';
+                        } else {
+                            itemCarString.closest('tr').style.display = 'none';
+                        }
+                    }
+
+                    // clearTimeout(timerId);
+
                 }
-            }
+
+                // clearTimeout(timerId);
+
+           
         }
 
      
