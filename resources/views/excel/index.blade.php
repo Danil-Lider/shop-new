@@ -21,9 +21,12 @@
                                 <input type="file" name="file" class="custom-file-input" id="inputGroupFile" required accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
                                 <label class="custom-file-label" for="inputGroupFile">Выберите файл</label>
                             </div>
-                            <div class="input-group-append">
+                            <div class="custom-file">
                                 <button type="submit" class="btn btn-primary float-right mr-2">Импорт <i class="fa fa-upload"></i></button>
                             </div>
+                            <!-- <div class="input-group-append"> -->
+                              
+                            <!-- </div> -->
                         </div>
                     </form>
                 </div>

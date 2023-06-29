@@ -56,6 +56,7 @@
 
         .table {
             color: black !important;
+            font-weight: 500;
         }
 
         .voyager .side-menu .navbar-header {
