@@ -29,6 +29,9 @@ class ItemController extends Controller
      public function excel_index()
      {
          $movies = Item::get();
+
+      
+
          return view('excel.index', compact('movies'));
      }
  
@@ -73,14 +76,14 @@ class ItemController extends Controller
     public function index()
     {
 
-        $data = Item::paginate(100, ['*'], 'page');
+        $data = Item::paginate(1000, ['*'], 'page');
         return view('main/index', compact('data'));
     }
 
     public function modal()
     {
 
-        $data = Item::paginate(100, ['*'], 'page');
+        $data = Item::paginate(1000, ['*'], 'page');
         return view('main/modal', compact('data'));
     }
 
