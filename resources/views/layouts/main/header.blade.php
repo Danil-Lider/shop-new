@@ -45,7 +45,7 @@
 
 </head>
 
-<body class="body @if(!route('modal')) body-gray @endif">
+<body class="body @if(Route::currentRouteName() == 'modal') body-gray @endif">
 
    <div class="wrapper">
       <div class="content">
