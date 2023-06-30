@@ -214,21 +214,21 @@ table tbody tr .table-btn {
    width: auto;
    /*height: 495px;*/
    height: min-content;
-   top: calc(50% - 250px);
-   left: calc(50% - 175px);
+   top: calc(50% - 400px);
+   left: calc(50% - 188px);
 
    /* border-radius: 10px; */
    background-color: rgb(255, 255, 255);
    cursor: default;
    padding: 80px 50px;
    width: 530px;
-   width: auto;
+   /* width: auto; */
    /*height: 580px;*/
    /*height: */
    background: #E4E4E4;
-   left: 50%;
+   /* left: 50%;
    transform: translate(-50%, -50%);
-   top: 50%;
+   top: 50%; */
    /* transform: translateY(-50%); */
    font-family: 'Inter', sans-serif;
 }
@@ -292,4 +292,8 @@ table tbody tr td:nth-child(4n){
 
 }
 
+body {
+   width:100%;
+   min-width: 30rem;
+}
 </style>

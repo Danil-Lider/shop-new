@@ -248,7 +248,7 @@ modalTrigger.on( "click", function(e) {
     }
 
     // позиционируем наше окно по середине, где 175 - половина ширины модального окна
-    // modalActive.style.left = "calc(50% - " + (175 - scrollbarWidth / 2) + "px)";
+        // modalActive.style.left = "calc(50% - " + (227 - scrollbarWidth / 2) + "px)";
     });
 
     // нажатие на крестик закрытия модального окна
