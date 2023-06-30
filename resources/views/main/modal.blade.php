@@ -147,6 +147,14 @@
 
 @include('layouts.main.footer')
 
+<style>
+    .modalActive {
+        transform: translate(-50%, -50%) !important;
+        left: 50% !important;
+        top: 50% !important;
+    }
+</style>
+
 
 
 <script
@@ -245,7 +253,7 @@ const modalActive = document.getElementsByClassName("modalActive")[0];
 
 // функция для корректировки положения body при появлении ползунка прокрутки
 function bodyMargin() {
-    bodyElementHTML.style.marginRight = "-" + scrollbarWidth + "px";
+    // bodyElementHTML.style.marginRight = "-" + scrollbarWidth + "px";
 }
 
 // при длинной странице - корректируем сразу
