@@ -16,7 +16,11 @@
                 <div class="col-md-6">
                     <form method="POST" action="{{ url('admin/import') }}" enctype="multipart/form-data">
                         @csrf
-                        <div class="input-group">
+                        <div style='    display: flex;
+    justify-content: space-between;
+    align-items: inherit;
+
+' class="input-group">
                             <div class="custom-file">
                                 <input type="file" name="file" class="custom-file-input" id="inputGroupFile" required accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
                                 <label class="custom-file-label" for="inputGroupFile">Выберите файл</label>

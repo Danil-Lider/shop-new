@@ -22,15 +22,15 @@ class ItemImport implements ToModel,  WithStartRow
             // dd($row);
 
             Item::where('article_for_1c', '=', $row[4])
-            ->update(['name' => $row[0], 'model' => $row[1],'link_youtube' => $row[3]]);
+            ->update(['name' => $row[1], 'model' => $row[0],'link_youtube' => $row[3]]);
 
         }else{
 
-            if(($row[1] == '' || !Item::where('model', '=', $row[1])->exists()) && !empty( $row[0])) {
+            if(($row[1] == '' || !Item::where('model', '=', $row[0])->exists()) && !empty( $row[1])) {
 
                 return new Item([
-                    'name' => $row[0],
-                    'model' => $row[1],
+                    'model' => $row[0],
+                    'name' => $row[1],
                     'link_youtube' => $row[3],
                     // 'model' => $row[3],
                     'article_for_1c' => $row['4']

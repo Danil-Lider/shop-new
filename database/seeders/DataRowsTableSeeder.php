@@ -110,6 +110,22 @@ class DataRowsTableSeeder extends Seeder
         $BookDataType = DataType::where('slug', 'items')->firstOrFail();
 
 
+        $dataRow = $this->dataRow($BookDataType, 'article_for_1c');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => __('article_for_1c'),
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 1,
+            ])->save();
+        }
+
+
         $dataRow = $this->dataRow($BookDataType, 'id');
         if (!$dataRow->exists) {
             $dataRow->fill([

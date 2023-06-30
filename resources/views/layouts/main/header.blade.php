@@ -115,7 +115,6 @@
 
 <style>
 
-
 .form-check, .form-group {
    margin-top: 24px;
 }
@@ -140,31 +139,6 @@ overflow-x: hidden;
    z-index: 10;
    top: 0;
    left: 0;
-}
-
-/* позиционирование самого модального окна */
-.modalActive {
-   position: absolute;
-   /*width: avto;*/
-   width: auto;
-   /*height: 495px;*/
-   height: min-content;
-   top: calc(50% - 250px);
-   left: calc(50% - 175px);
-
-   /* border-radius: 10px; */
-   background-color: rgb(255, 255, 255);
-   cursor: default;
-   padding: 80px 50px;
-   width: 530px;
-   width: auto;
-   /*height: 580px;*/
-   /*height: */
-   background: #E4E4E4;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   top: 50%;
-   /* transform: translateY(-50%); */
 }
 
 /* кнопочка закрытия модального окна */
@@ -222,13 +196,78 @@ overflow-x: hidden;
    display: block;
    margin-top: 52px;
 }
-.form-check label {
-   font-size: 12px;
-   font-family: Inter;
-}
+
 .modalClose {
    margin-top: 26px;
    margin-right: 35px;
+}
+
+
+table tbody tr .table-btn {
+   opacity: 1;
+}
+
+/* позиционирование самого модального окна */
+.modalActive {
+   position: absolute;
+   /*width: avto;*/
+   width: auto;
+   /*height: 495px;*/
+   height: min-content;
+   top: calc(50% - 250px);
+   left: calc(50% - 175px);
+
+   /* border-radius: 10px; */
+   background-color: rgb(255, 255, 255);
+   cursor: default;
+   padding: 80px 50px;
+   width: 530px;
+   width: auto;
+   /*height: 580px;*/
+   /*height: */
+   background: #E4E4E4;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   top: 50%;
+   /* transform: translateY(-50%); */
+   font-family: 'Inter', sans-serif;
+}
+
+.modalActive  * {
+   font-family: 'Inter', sans-serif;
+}
+
+.modalWindow {
+   max-width: 516px;
+}
+
+table tbody tr td:nth-child(4n){
+   padding-right: 1rem;
+}
+
+.form-check-input {
+   opacity: 1;
+   position: relative;
+   height: 13px;
+   width: 0;
+}
+.form-check-input:after {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 20px;
+   height: 20px;
+   background: white;
+}
+.form-check-input:checked:after {
+   background: url(https://w7.pngwing.com/pngs/897/401/png-transparent-check-illustration-computer-icons-check-mark-checkbox-green-tick-miscellaneous-angle-white.png);
+   background-position: center;
+   background-size: cover;
+}
+
+.form-check-label {
+   margin-left: 2rem;
 }
 
 @media screen and (max-width: 762px) {
@@ -242,5 +281,15 @@ overflow-x: hidden;
    .form-btn {
       font-size: 25px;
    }
+   table tbody tr .table-btn {
+      color: white !important;
+   }
 }
+
+.form-check label {
+   font-size: 15px;
+   font-family: Inter;
+
+}
+
 </style>

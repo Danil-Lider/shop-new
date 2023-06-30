@@ -62,7 +62,7 @@
 
 <!-- {{menu('admin')}} -->
 
-<div class='table-btn'>Открыть моадльное окно</div>
+<!-- <div class='table-btn'>Открыть моадльное окно</div> -->
 
 
         <div class="row">
@@ -144,11 +144,6 @@
 </main>
 
 
-<style>
-    table tbody tr .table-btn {
-        opacity: 1;
-    }
-</style>
 
 @include('layouts.main.footer')
 
@@ -213,7 +208,7 @@ const modalActive = document.getElementsByClassName("modalActive")[0];
 
 // функция для корректировки положения body при появлении ползунка прокрутки
 function bodyMargin() {
-// bodyElementHTML.style.marginRight = "-" + scrollbarWidth + "px";
+    bodyElementHTML.style.marginRight = "-" + scrollbarWidth + "px";
 }
 
 // при длинной странице - корректируем сразу
@@ -249,7 +244,7 @@ modalTrigger.on( "click", function(e) {
 
     // если размер экрана больше 1366 пикселей (т.е. на мониторе может появиться ползунок)
     if (windowInnerWidth >= 1366) {
-        // bodyMargin();
+        bodyMargin();
     }
 
     // позиционируем наше окно по середине, где 175 - половина ширины модального окна
@@ -260,7 +255,7 @@ modalTrigger.on( "click", function(e) {
     modalClose.addEventListener("click", function () {
     modalBackground.style.display = "none";
     if (windowInnerWidth >= 1366) {
-        // bodyMargin();
+        bodyMargin();
     }
     });
 
@@ -269,7 +264,7 @@ modalTrigger.on( "click", function(e) {
     if (event.target === modalBackground) {
         modalBackground.style.display = "none";
         if (windowInnerWidth >= 1366) {
-            // bodyMargin();
+            bodyMargin();
         }
     }
 });
