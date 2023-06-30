@@ -48,7 +48,7 @@
         }
 
 
-        .table {
+        .table, .form-group *, .panel *  {
             color: black !important;
             font-weight: 500;
         }
