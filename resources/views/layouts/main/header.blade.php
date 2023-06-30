@@ -276,7 +276,7 @@ table tbody tr td:nth-child(4n){
       padding:40px 20px;
    }
    .form-group-input {
-      font-size: 34px;
+      font-size: 31px;
    }
    .form-btn {
       font-size: 25px;
