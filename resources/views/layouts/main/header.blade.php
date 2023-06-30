@@ -45,7 +45,7 @@
 
 </head>
 
-<body class="body body-gray">
+<body class="body @if(!route('modal')) body-gray @endif">
 
    <div class="wrapper">
       <div class="content">

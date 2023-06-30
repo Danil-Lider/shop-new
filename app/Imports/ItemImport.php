@@ -16,10 +16,9 @@ class ItemImport implements ToModel,  WithStartRow
     */
     public function model(array $row)
     {
-
         if(Item::where('article_for_1c', '=', $row[4])->exists() && !empty($row[4])){
-
-            // dd($row);
+            
+            // обновляем
 
             Item::where('article_for_1c', '=', $row[4])
             ->update(['name' => $row[1], 'model' => $row[0],'link_youtube' => $row[3]]);

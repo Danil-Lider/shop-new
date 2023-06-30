@@ -20,6 +20,10 @@ use Illuminate\Http\Request;
 
 
 
+Route::get('/specifications.html',function (Request $request) {
+    return view('main/specifications');
+})->name('spec');
+
 
 
 
