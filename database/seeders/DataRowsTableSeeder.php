@@ -126,20 +126,20 @@ class DataRowsTableSeeder extends Seeder
         }
 
 
-        $dataRow = $this->dataRow($BookDataType, 'id');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'number',
-                'display_name' => __('id'),
-                'required'     => 1,
-                'browse'       => 0,
-                'read'         => 0,
-                'edit'         => 0,
-                'add'          => 0,
-                'delete'       => 0,
-                'order'        => 1,
-            ])->save();
-        }
+        // $dataRow = $this->dataRow($BookDataType, 'id');
+        // if (!$dataRow->exists) {
+        //     $dataRow->fill([
+        //         'type'         => 'number',
+        //         'display_name' => __('id'),
+        //         'required'     => 1,
+        //         'browse'       => 0,
+        //         'read'         => 0,
+        //         'edit'         => 0,
+        //         'add'          => 0,
+        //         'delete'       => 0,
+        //         'order'        => 1,
+        //     ])->save();
+        // }
 
         $dataRow = $this->dataRow($BookDataType, 'name');
         if (!$dataRow->exists) {
@@ -205,7 +205,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'checkbox',
-                'display_name' => __('Статус'),
+                'display_name' => __('отоброжать'),
                 'required'     => 0,
                 'browse'       => 1,
                 'read'         => 1,

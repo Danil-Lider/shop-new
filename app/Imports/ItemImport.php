@@ -30,7 +30,7 @@ class ItemImport implements ToModel,  WithStartRow
                 return new Item([
                     'model' => $row[0],
                     'name' => $row[1],
-                    'link_youtube' => $row[3],
+                    // 'link_youtube' => $row[3],
                     // 'model' => $row[3],
                     'article_for_1c' => $row['4']
                 ]);
