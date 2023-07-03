@@ -21,7 +21,7 @@ class ItemImport implements ToModel,  WithStartRow
             // обновляем
 
             Item::where('article_for_1c', '=', $row[4])
-            ->update(['name' => $row[1], 'model' => $row[0],'link_youtube' => $row[3]]);
+            ->update(['model' => $row[0], 'name' => $row[1]]);
 
         }else{
 
