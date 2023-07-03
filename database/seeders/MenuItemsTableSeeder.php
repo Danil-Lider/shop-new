@@ -216,7 +216,7 @@ class MenuItemsTableSeeder extends Seeder
 
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('Импорт excel'),
+            'title'   => __('Импорт из 1С'),
             'url'     => '',
             'route'   => 'excel',
         ]);

@@ -21,9 +21,16 @@
     align-items: inherit;
 
 ' class="input-group">
+
+                           
+
+
                             <div class="custom-file">
+                           
+
                                 <input type="file" name="file" class="custom-file-input" id="inputGroupFile" required accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
-                                <label class="custom-file-label" for="inputGroupFile">Выберите файл</label>
+                                <label class="custom-file-label" for="inputGroupFile">Выберите файл  <div style='padding:1rem;' class='alert-danger text-danger font-weight-bold '>CSV обязательно должен быть в кодировке UTF-8!</div> </label>
+                                
                             </div>
                             <div class="custom-file">
                                 <button type="submit" class="btn btn-primary float-right mr-2">Импорт <i class="fa fa-upload"></i></button>
