@@ -430,5 +430,3 @@ modalTrigger.on( "click", function(e) {
 </script>
 
 
-@include('layouts.main.footer')
-
