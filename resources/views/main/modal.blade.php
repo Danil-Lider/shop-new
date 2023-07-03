@@ -21,13 +21,15 @@
                     <div class="form-group">
                     <div class='form-group-title'>Марка и модель авто: </div>
                     <!-- <div> ACURA CDX 2016-2021</div> -->
-                    <input readonly class="avto form-group-input" type="" name="avto" value="">
+                        <input readonly class="avto form-group-input" type="hidden" name="avto" value="">
+                        <div class="avto form-group-input"></div>
                     </div>
 
                     <div class="form-group">
                     <div class='form-group-title'>Модель подъемника: </div>
                     <!-- <div class="model"> </div> -->
-                    <input readonly class="model form-group-input" type="text" name="model" value="">
+                        <input readonly class="model form-group-input" type="hidden" name="model" value="">
+                        <div class="model form-group-input"></div>
                     </div>
 
                 </div>
@@ -275,7 +277,10 @@ modalTrigger.on( "click", function(e) {
             $('.form-detail').show()
 
             $('.avto').val(form_avto)
+            $('.avto').text(form_avto)
+
             $('.model').val(form_model)
+            $('.model').text(form_model)
         }
     }else{
         $('.form-detail').hide()
