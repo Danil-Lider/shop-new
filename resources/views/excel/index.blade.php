@@ -29,7 +29,11 @@
                            
 
                                 <input type="file" name="file" class="custom-file-input" id="inputGroupFile" required accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
-                                <label class="custom-file-label" for="inputGroupFile">Выберите файл  <div style='padding:1rem;' class='alert-danger text-danger font-weight-bold '>CSV обязательно должен быть в кодировке UTF-8!</div> </label>
+                                <label class="custom-file-label" for="inputGroupFile">Выберите файл
+                                    <div style='padding:1rem;' class='alert-danger text-danger font-weight-bold '>
+                                        Файл CSV обязательно должен быть в кодировке UTF-8!
+                                    </div> 
+                                </label>
                                 
                             </div>
                             <div class="custom-file">
