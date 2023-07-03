@@ -14,10 +14,15 @@
    <link rel="icon" href="img/favicon.png">
    <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}?<?php echo time();?>">
 
+   @if(Route::currentRouteName() != 'modal')
+
    <script src="{{ asset('assets/libs/gsap/gsap.min.js') }}?<?php echo time();?>" defer></script>
    <script src="{{ asset('assets/libs/gsap/ScrollTrigger.min.js') }}?<?php echo time();?>" defer></script>
    <script src="{{ asset('assets/libs/gsap/ScrollSmoother.min.js') }}?<?php echo time();?>" defer></script>
    <script src="{{ asset('assets/js/app.js') }}?<?php echo time();?>" defer></script>
+
+   @endif
+
    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
@@ -42,6 +47,38 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/94122762" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+   const btnMobileMenu = document.querySelector('.btn-burger');
+   const mobileMenu = document.querySelector('.mobile-menu');
+   const logo = document.querySelector('.logo .logo__img');
+   const bodyFix = document.querySelector('body');
+
+
+   btnMobileMenu.onclick = function () {
+      this.classList.toggle('btn-burger-active');
+      mobileMenu.classList.toggle('mobile-menu-active');
+      bodyFix.classList.toggle('body-fix');
+
+      let logoAttr = logo.getAttribute('src');
+
+      if (logoAttr === 'img/white-logo.png') {
+         logo.setAttribute('src', 'img/black-logo.svg');
+      } else {
+         logo.setAttribute('src', 'img/white-logo.png');
+      }
+   }
+  
+   let yearFooter = document.querySelector('.date');
+   var date = new Date();
+
+   yearFooter.textContent = date.getFullYear();
+
+})
+</script>
 
 </head>
 
@@ -173,7 +210,7 @@ overflow-x: hidden;
 .form-group-input {
    border: none;
    color: #000;
-   font-size: 40px;
+   font-size: 35px;
    font-family: Inter;
    background:none;
 }
@@ -276,7 +313,7 @@ table tbody tr td:nth-child(4n){
       padding:40px 20px;
    }
    .form-group-input {
-      font-size: 31px;
+      font-size: 30px;
    }
    .form-btn {
       font-size: 25px;
@@ -288,7 +325,7 @@ table tbody tr td:nth-child(4n){
 
 .form-check label {
    font-size: 15px;
-   font-family: Inter;
+   /* font-family: Inter; */
 
 }
 

@@ -1,25 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-   const btnMobileMenu = document.querySelector('.btn-burger');
-   const mobileMenu = document.querySelector('.mobile-menu');
-   const logo = document.querySelector('.logo .logo__img');
-   const bodyFix = document.querySelector('body');
-
-
-   btnMobileMenu.onclick = function () {
-      this.classList.toggle('btn-burger-active');
-      mobileMenu.classList.toggle('mobile-menu-active');
-      bodyFix.classList.toggle('body-fix');
-
-      let logoAttr = logo.getAttribute('src');
-
-      if (logoAttr === 'img/white-logo.png') {
-         logo.setAttribute('src', 'img/black-logo.svg');
-      } else {
-         logo.setAttribute('src', 'img/white-logo.png');
-      }
-   }
-
    gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
    ScrollSmoother.create({
       wrapper: '.wrapper',
@@ -27,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
    })
 
    window.addEventListener('scroll', e => {
-      document.documentElement.style.setProperty('--scrollTop', `${this.scrollY}px`) // Update method
+      // document.documentElement.style.setProperсty('--scrollTop', `${this.scrollY}px`) // Update method
    })
 
    if (window.innerWidth > 992) {
@@ -113,10 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
    //    }
    // }
 
-   let yearFooter = document.querySelector('.date');
-   var date = new Date();
 
-   yearFooter.textContent = date.getFullYear();
 
 })
 
